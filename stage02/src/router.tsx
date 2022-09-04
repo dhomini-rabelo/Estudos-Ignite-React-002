@@ -9,7 +9,7 @@ export function RouterController() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Index />} />
-          <Route path="/history" element={<History />} />
+          <Route path="/historico" element={<History />} />
         </Route>
       </Routes>
     </BrowserRouter>
