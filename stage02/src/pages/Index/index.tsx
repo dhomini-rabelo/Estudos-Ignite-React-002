@@ -1,5 +1,5 @@
 import { Play } from 'phosphor-react'
-import { Div } from './stylex'
+import { Div } from './styles'
 
 export function Index() {
   return (
