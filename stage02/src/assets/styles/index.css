@@ -37,5 +37,18 @@ html, body {
   min-width: 100vw;
   min-height: 100%;
   background: var(--Gray-800);
+  -webkit-font-smoothing: antialiased;
 }
 
+
+@layer base {
+  .index-countdown {
+    @apply bg-Gray-700;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    word-spacing: 1rem;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+} 

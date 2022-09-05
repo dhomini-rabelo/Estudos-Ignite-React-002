@@ -23,7 +23,7 @@ export function DefaultLayout() {
           </NavLink>
         </nav>
       </header>
-      <main>
+      <main className="grow flex w-full">
         <Outlet />
       </main>
     </Div.container>
