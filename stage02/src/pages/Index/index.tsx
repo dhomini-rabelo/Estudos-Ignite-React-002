@@ -15,10 +15,10 @@ interface FormCycleInterface extends taskSchemaType {
 }
 
 export function Index() {
-  const [formCycles, setFormCycles] = useState<FormCycleInterface[]>([])
+  const [timerCycles, setTimerCycles] = useState<FormCycleInterface[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [secondsPassed, setSecondsPassed] = useState<number>(0)
-  const activeCycle = formCycles.find((cycle) => cycle.id === activeCycleId)
+  const activeCycle = timerCycles.find((cycle) => cycle.id === activeCycleId)
   const [minutesDisplay, secondsDisplay] = getCountDownRepresentation(
     activeCycle,
     secondsPassed,
@@ -40,7 +40,7 @@ export function Index() {
         const difference = differenceInSeconds(new Date(), activeCycle.start)
         const totalSeconds = activeCycle.minutes * 60
         if (difference >= totalSeconds) {
-          setFormCycles((prev) =>
+          setTimerCycles((prev) =>
             prev.map((cycle) =>
               cycle.id === activeCycleId
                 ? { ...cycle, finished: new Date() }
@@ -68,7 +68,7 @@ export function Index() {
       start: new Date(),
       ...data,
     }
-    setFormCycles((prev) => [...prev, newCycle])
+    setTimerCycles((prev) => [...prev, newCycle])
     setActiveCycleId(newCycle.id)
     setSecondsPassed(0)
     reset()
@@ -76,7 +76,7 @@ export function Index() {
 
   function handleStopCycle() {
     setActiveCycleId(null)
-    setFormCycles((prev) =>
+    setTimerCycles((prev) =>
       prev.map((cycle) =>
         cycle.id === activeCycleId ? { ...cycle, stop: new Date() } : cycle,
       ),
