@@ -1,4 +1,4 @@
-import { Play } from 'phosphor-react'
+import { HandPalm, Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { Div } from './styles'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -10,6 +10,7 @@ import { differenceInSeconds } from 'date-fns'
 interface FormCycleInterface extends taskSchemaType {
   id: string
   start: Date
+  stop?: Date | undefined
 }
 
 export function Index() {
@@ -33,6 +34,7 @@ export function Index() {
     let interval: number | null = null
 
     if (activeCycle) {
+      document.title = activeCycle.task
       interval = setInterval(() => {
         setSecondsPassed(differenceInSeconds(new Date(), activeCycle.start))
       }, 997)
@@ -55,6 +57,15 @@ export function Index() {
     setActiveCycleId(newCycle.id)
     setSecondsPassed(0)
     reset()
+  }
+
+  function handleStopCycle() {
+    setActiveCycleId(null)
+    setFormCycles((prev) =>
+      prev.map((cycle) =>
+        cycle.id === activeCycleId ? { ...cycle, stop: new Date() } : cycle,
+      ),
+    )
   }
 
   function getCountDownRepresentation(
@@ -85,6 +96,7 @@ export function Index() {
             placeholder="Dê um nome para seu projeto"
             className="input-pomo grow text-center"
             {...register('task')}
+            disabled={!!activeCycle}
           />
           <datalist id="todo-title-suggestions">
             <option value="a0" />
@@ -99,6 +111,7 @@ export function Index() {
             step={5}
             min={5}
             max={60}
+            disabled={!!activeCycle}
             {...register('minutes', {
               valueAsNumber: true,
             })}
@@ -116,14 +129,25 @@ export function Index() {
             {secondsDisplay[0]} {secondsDisplay[1]}
           </span>
         </Div.countDown>
-        <button
-          type="submit"
-          className="w-full p-4 border-0 rounded-lg flex-center cursor-pointer bg-Green-500 text-Gray-100 hover:bg-Green-700 disabled:opacity-70 disabled:cursor-not-allowed disabled:bg-Green-500"
-          disabled={!taskInputValue}
-        >
-          <Play size={24} className="inline mr-2" />
-          Começar
-        </button>
+        {activeCycle ? (
+          <button
+            type="button"
+            className="w-full p-4 border-0 rounded-lg flex-center cursor-pointer bg-Red-500 text-Gray-100 hover:bg-Red-700"
+            onClick={handleStopCycle}
+          >
+            <HandPalm size={24} className="inline mr-2" />
+            Parar
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="w-full p-4 border-0 rounded-lg flex-center cursor-pointer bg-Green-500 text-Gray-100 hover:bg-Green-700 disabled:opacity-70 disabled:cursor-not-allowed disabled:bg-Green-500"
+            disabled={!taskInputValue}
+          >
+            <Play size={24} className="inline mr-2" />
+            Começar
+          </button>
+        )}
       </div>
     </form>
   )
