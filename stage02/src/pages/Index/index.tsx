@@ -3,22 +3,24 @@ import { useForm } from 'react-hook-form'
 import { Div } from './styles'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { taskSchema, taskSchemaType } from '../../schemas/task'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { differenceInSeconds } from 'date-fns'
 // import * as zod from 'zod'
 
 interface FormCycleInterface extends taskSchemaType {
   id: string
+  start: Date
 }
 
 export function Index() {
   const [formCycles, setFormCycles] = useState<FormCycleInterface[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [secondsPassed, setSecondsPassed] = useState<number>(0)
+  const activeCycle = formCycles.find((cycle) => cycle.id === activeCycleId)
   const [minutesDisplay, secondsDisplay] = getCountDownRepresentation(
-    formCycles,
+    activeCycle,
     secondsPassed,
   )
-
   const { register, handleSubmit, watch, reset } = useForm<taskSchemaType>({
     resolver: zodResolver(taskSchema),
     defaultValues: {
@@ -27,21 +29,38 @@ export function Index() {
   })
   const taskInputValue = watch('task')
 
+  useEffect(() => {
+    let interval: number | null = null
+
+    if (activeCycle) {
+      interval = setInterval(() => {
+        setSecondsPassed(differenceInSeconds(new Date(), activeCycle.start))
+      }, 997)
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval)
+      }
+    }
+  }, [activeCycle])
+
   function handleFormSubmit(data: taskSchemaType) {
     const newCycle: FormCycleInterface = {
       id: new Date().getTime().toString(),
+      start: new Date(),
       ...data,
     }
     setFormCycles((prev) => [...prev, newCycle])
     setActiveCycleId(newCycle.id)
+    setSecondsPassed(0)
     reset()
   }
 
   function getCountDownRepresentation(
-    cycles: FormCycleInterface[],
+    activeCycle: FormCycleInterface | undefined,
     secondsPassed: number,
   ): [string, string] {
-    const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
     const currentSeconds = activeCycle
       ? activeCycle.minutes * 60 - secondsPassed
       : 0
