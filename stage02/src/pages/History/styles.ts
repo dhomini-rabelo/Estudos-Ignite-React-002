@@ -43,8 +43,10 @@ export const Div = {
   `,
 }
 
+/* eslint-disable */
+
 export const Span = {
-  status: styled.span<{ color: statusType }>`
+  status: styled.span(({ color }: { color: statusType }) => `
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -54,7 +56,7 @@ export const Span = {
       width: 0.5rem;
       height: 0.5rem;
       border-radius: 50%;
-      background: var(${({ color }) => statusColors[color]});
+      background: var(${statusColors[color]});
     }
-  `,
+  `),
 }
