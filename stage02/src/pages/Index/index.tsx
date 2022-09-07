@@ -11,6 +11,7 @@ interface FormCycleInterface extends taskSchemaType {
   id: string
   start: Date
   stop?: Date | undefined
+  finished?: Date | undefined
 }
 
 export function Index() {
@@ -36,7 +37,21 @@ export function Index() {
     if (activeCycle) {
       document.title = activeCycle.task
       interval = setInterval(() => {
-        setSecondsPassed(differenceInSeconds(new Date(), activeCycle.start))
+        const difference = differenceInSeconds(new Date(), activeCycle.start)
+        const totalSeconds = activeCycle.minutes * 60
+        if (difference >= totalSeconds) {
+          setFormCycles((prev) =>
+            prev.map((cycle) =>
+              cycle.id === activeCycleId
+                ? { ...cycle, finished: new Date() }
+                : cycle,
+            ),
+          )
+          setActiveCycleId(null)
+          setSecondsPassed(totalSeconds)
+        } else {
+          setSecondsPassed(difference)
+        }
       }, 997)
     }
 
@@ -45,7 +60,7 @@ export function Index() {
         clearInterval(interval)
       }
     }
-  }, [activeCycle])
+  }, [activeCycle, activeCycleId])
 
   function handleFormSubmit(data: taskSchemaType) {
     const newCycle: FormCycleInterface = {
