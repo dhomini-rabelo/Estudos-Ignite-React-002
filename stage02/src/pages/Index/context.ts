@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { TimerCycleInterface } from '.'
+import { TimerCycleInterface } from './types'
 
 interface timerCyclesContextInterface {
   activeCycle: TimerCycleInterface | undefined

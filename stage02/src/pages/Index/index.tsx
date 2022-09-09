@@ -6,14 +6,8 @@ import { useState } from 'react'
 import { TimerCyclesContext } from './context'
 import { CountDown } from './components/CountDown'
 import { TimerCycleForm } from './components/TimerCycleForm'
+import { TimerCycleInterface } from './types'
 // import * as zod from 'zod'
-
-export interface TimerCycleInterface extends taskSchemaType {
-  id: string
-  start: Date
-  stop?: Date | undefined
-  finished?: Date | undefined
-}
 
 export function Index() {
   const [timerCycles, setTimerCycles] = useState<TimerCycleInterface[]>([])

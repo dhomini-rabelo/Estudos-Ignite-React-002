@@ -6,7 +6,7 @@ import { Div } from './styles'
 import { useContext, useEffect, useState } from 'react'
 import { differenceInSeconds } from 'date-fns'
 import { TimerCyclesContext } from '../../context'
-import { TimerCycleInterface } from '../..'
+import { TimerCycleInterface } from '../../types'
 
 export function CountDown() {
   const [secondsPassed, setSecondsPassed] = useState<number>(0)
