@@ -19,9 +19,10 @@ export function TimerCycleForm() {
         disabled={!!activeCycle}
       />
       <datalist id="todo-title-suggestions">
-        <option value="a0" />
-        <option value="a1" />
-        <option value="a2" />
+        <option value="Projeto 1" />
+        <option value="Projeto 2" />
+        <option value="Projeto 3" />
+        <option value="Descanso" />
       </datalist>
       <label htmlFor="minutes">durante</label>
       <input
