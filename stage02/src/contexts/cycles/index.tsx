@@ -1,11 +1,8 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import { taskSchemaType } from '../../schemas/task'
 import { TimerCyclesReducer } from './reducer'
-import {
-  TimerCycleInterface,
-  timerCyclesContextInterface,
-} from './types/context'
-import { TimerCyclesReducerActions } from './types/reducer'
+import { TimerCycleInterface, timerCyclesContextInterface } from './types'
+import { TimerCyclesReducerActions } from './reducer/types'
 
 /* eslint-disable */
 export const TimerCyclesContext = createContext<timerCyclesContextInterface>(

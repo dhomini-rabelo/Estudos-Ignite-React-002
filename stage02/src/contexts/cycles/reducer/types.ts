@@ -1,10 +1,10 @@
-import { TimerCycleInterface } from './context'
+import { TimerCycleInterface } from '../types'
 
 /* eslint-disable */
 export enum TimerCyclesReducerActions {
-  create,
-  stop,
-  finish,
+  create = 'create',
+  stop = 'stop',
+  finish = 'finish',
 }
 
 export type TimerCyclesReducerState = {

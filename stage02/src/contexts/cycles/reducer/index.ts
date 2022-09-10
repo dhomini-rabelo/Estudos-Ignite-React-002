@@ -2,8 +2,8 @@ import {
   TimerCyclesReducerAction,
   TimerCyclesReducerActions,
   TimerCyclesReducerState,
-} from './types/reducer'
-import { TimerCycleInterface } from './types/context'
+} from './types'
+import { TimerCycleInterface } from '../types'
 
 /* eslint-disable */
 
