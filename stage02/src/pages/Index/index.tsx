@@ -6,7 +6,6 @@ import { useContext } from 'react'
 import { CountDown } from './components/CountDown'
 import { TimerCycleForm } from './components/TimerCycleForm'
 import { TimerCyclesContext } from '../../contexts/cycles'
-// import * as zod from 'zod'
 
 export function Index() {
   const {

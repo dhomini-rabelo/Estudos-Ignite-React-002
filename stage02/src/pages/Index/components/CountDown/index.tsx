@@ -1,7 +1,7 @@
 import { Div } from './styles'
 import { useContext, useEffect, useState } from 'react'
 import { differenceInSeconds } from 'date-fns'
-import { TimerCycleInterface } from '../../../../contexts/types'
+import { TimerCycleInterface } from '../../../../contexts/cycles/types'
 import { TimerCyclesContext } from '../../../../contexts/cycles'
 
 export function CountDown() {

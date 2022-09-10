@@ -1,4 +1,4 @@
-import { taskSchemaType } from '../schemas/task'
+import { taskSchemaType } from '../../schemas/task'
 
 export interface TimerCycleInterface extends taskSchemaType {
   id: string

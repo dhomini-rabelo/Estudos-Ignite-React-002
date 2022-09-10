@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useReducer } from 'react'
-import { taskSchemaType } from '../schemas/task'
+import { taskSchemaType } from '../../schemas/task'
 import { TimerCycleInterface } from './types'
 
 interface timerCyclesContextInterface {
