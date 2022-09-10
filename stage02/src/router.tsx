@@ -6,15 +6,15 @@ import { TimerCyclesContextProvider } from './contexts/cycles'
 
 export function RouterController() {
   return (
-    <TimerCyclesContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <TimerCyclesContextProvider>
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/historico" element={<History />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </TimerCyclesContextProvider>
+      </TimerCyclesContextProvider>
+    </BrowserRouter>
   )
 }
