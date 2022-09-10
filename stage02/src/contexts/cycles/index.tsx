@@ -1,59 +1,16 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import { taskSchemaType } from '../../schemas/task'
+import { TimerCyclesReducer } from './reducer'
 import {
   TimerCycleInterface,
   timerCyclesContextInterface,
 } from './types/context'
+import { TimerCyclesReducerActions } from './types/reducer'
 
 /* eslint-disable */
 export const TimerCyclesContext = createContext<timerCyclesContextInterface>(
   {} as timerCyclesContextInterface,
 )
-
-enum TimerCyclesReducerActions {
-  create,
-  stop,
-  finish,
-}
-
-type TimerCyclesReducerState = {
-  cycles: TimerCycleInterface[]
-  activeCycleId: string | null
-}
-
-type TimerCyclesReducerAction = {
-  type: TimerCyclesReducerActions
-  payload?: any
-}
-
-function TimerCyclesReducer(
-  state: TimerCyclesReducerState,
-  action: TimerCyclesReducerAction,
-): TimerCyclesReducerState {
-  switch (action.type) {
-    case TimerCyclesReducerActions.create:
-      const { newCycle }: { newCycle: TimerCycleInterface } = action.payload
-      return { cycles: [...state.cycles, newCycle], activeCycleId: newCycle.id }
-    case TimerCyclesReducerActions.stop:
-      return {
-        cycles: state.cycles.map((cycle) =>
-          cycle.id === state.activeCycleId
-            ? { ...cycle, stop: new Date() }
-            : cycle,
-        ),
-        activeCycleId: null,
-      }
-      case TimerCyclesReducerActions.finish:
-        return {
-          cycles: state.cycles.map((cycle) =>
-            cycle.id === state.activeCycleId
-              ? { ...cycle, finished: new Date() }
-              : cycle,
-          ),
-          activeCycleId: null,
-        }
-  }
-}
 
 export function TimerCyclesContextProvider({
   children,
