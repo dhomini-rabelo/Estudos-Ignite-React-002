@@ -11,7 +11,6 @@ import { TimerCyclesContext } from '../../contexts/cycles'
 export function Index() {
   const {
     activeCycle,
-    activeCycleId,
     actions: { createCycle, stopCycle },
   } = useContext(TimerCyclesContext)
   const cycleForm = useForm<taskSchemaType>({
@@ -29,7 +28,7 @@ export function Index() {
   }
 
   function handleStopCycle() {
-    stopCycle(activeCycleId!)
+    stopCycle()
   }
 
   return (

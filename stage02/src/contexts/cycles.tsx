@@ -8,8 +8,8 @@ interface timerCyclesContextInterface {
   activeCycleId: string | null
   actions: {
     createCycle: (data: taskSchemaType) => void
-    stopCycle: (activeCycleId: string) => void
-    killCycle: (activeCycleId: string) => void
+    stopCycle: () => void
+    killCycle: () => void
   }
 }
 
@@ -74,7 +74,7 @@ export function TimerCyclesContextProvider({
   )
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
-  function killCycle(activeCycleId: string) {
+  function killCycle() {
     dispatchCycles({
       type: TimerCyclesReducerActions.finish,
     })
@@ -92,7 +92,7 @@ export function TimerCyclesContextProvider({
     })
   }
 
-  function stopCycle(activeCycleId: string) {
+  function stopCycle() {
     dispatchCycles({
       type: TimerCyclesReducerActions.stop,
     })

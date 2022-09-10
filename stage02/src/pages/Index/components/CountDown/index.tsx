@@ -21,7 +21,7 @@ export function CountDown() {
         const difference = differenceInSeconds(new Date(), activeCycle.start)
         const totalSeconds = activeCycle.minutes * 60
         if (difference >= totalSeconds) {
-          actions.killCycle(activeCycleId!)
+          actions.killCycle()
           setSecondsPassed(totalSeconds)
         } else {
           setSecondsPassed(difference)
