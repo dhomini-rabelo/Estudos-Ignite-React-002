@@ -1,12 +1,8 @@
-// import { HandPalm, Play } from 'phosphor-react'
-// import { useForm } from 'react-hook-form'
 import { Div } from './styles'
-// import { zodResolver } from '@hookform/resolvers/zod'
-// import { taskSchema, taskSchemaType } from '../../../../schemas/task'
 import { useContext, useEffect, useState } from 'react'
 import { differenceInSeconds } from 'date-fns'
-import { TimerCyclesContext } from '../../context'
-import { TimerCycleInterface } from '../../types'
+import { TimerCycleInterface } from '../../../../contexts/types'
+import { TimerCyclesContext } from '../../../../contexts/cycles'
 
 export function CountDown() {
   const [secondsPassed, setSecondsPassed] = useState<number>(0)

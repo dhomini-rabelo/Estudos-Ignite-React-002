@@ -1,8 +1,12 @@
+import { useContext } from 'react'
+import { TimerCyclesContext } from '../../contexts/cycles'
 import { Div, Span } from './styles'
 
 export function History() {
+  const { cycles } = useContext(TimerCyclesContext)
   return (
     <Div.container className="grow flex p-14 flex-col">
+      <pre>{JSON.stringify(cycles)}</pre>
       <h1 className="text-2xl text-Gray-100">Meu histórico</h1>
       <div className="grow overflow-auto mt-8">
         <table className="w-full border-collapse">

@@ -1,7 +1,7 @@
 import { Div } from './styles'
 import { useFormContext } from 'react-hook-form'
-import { TimerCyclesContext } from '../../context'
 import { useContext } from 'react'
+import { TimerCyclesContext } from '../../../../contexts/cycles'
 
 export function TimerCycleForm() {
   const { activeCycle } = useContext(TimerCyclesContext)
