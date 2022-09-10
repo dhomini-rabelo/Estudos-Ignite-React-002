@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import { taskSchemaType } from '../../schemas/task'
 import { TimerCyclesReducer } from './reducer'
+import { cyclesActions } from './reducer/actions'
 import { TimerCycleInterface, timerCyclesContextInterface } from './types'
-import { TimerCyclesReducerActions } from './reducer/types'
 
 /* eslint-disable */
 export const TimerCyclesContext = createContext<timerCyclesContextInterface>(
@@ -21,9 +21,7 @@ export function TimerCyclesContextProvider({
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   function killCycle() {
-    dispatchCycles({
-      type: TimerCyclesReducerActions.finish,
-    })
+    dispatchCycles(cyclesActions.finish())
   }
 
   function createCycle(data: taskSchemaType) {
@@ -32,16 +30,11 @@ export function TimerCyclesContextProvider({
       start: new Date(),
       ...data,
     }
-    dispatchCycles({
-      type: TimerCyclesReducerActions.create,
-      payload: { newCycle },
-    })
+    dispatchCycles(cyclesActions.create(newCycle))
   }
 
   function stopCycle() {
-    dispatchCycles({
-      type: TimerCyclesReducerActions.stop,
-    })
+    dispatchCycles(cyclesActions.stop())
   }
 
   return (
