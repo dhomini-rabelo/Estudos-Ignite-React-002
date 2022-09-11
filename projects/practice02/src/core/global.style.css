@@ -1,3 +1,21 @@
+:root {
+    --Yellow-100: #f1e9c9;
+    --Yellow-500: #dbac2c;
+    --Yellow-800: #c47f17;
+    --Purple-100: #ebe5f9;
+    --Purple-500: #8047f8;
+    --Purple-800: #4b2995;
+    --Gray-100: #fafafa;
+    --Gray-200: #f3f2f2;
+    --Gray-300: #ededed;
+    --Gray-500: #e6e5e5;
+    --Gray-800: #d7d7d5;
+    --Black-100: #8d8686;
+    --Black-300: #574f4d;
+    --Black-500: #403937;
+    --Black-800: #272221;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
