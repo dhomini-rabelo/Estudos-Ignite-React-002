@@ -39,8 +39,8 @@ export function Index() {
             Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
             hora
           </span>
-          <div className="topics mt-16 flex flex-col items-center justify-center ">
-            <div className="flex flex-wrap gap-y-5 gap-x-10">
+          <div className="grow mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 mt-16 gap-y-5 gap-x-10">
               <div className="ad-box flex items-center justify-start">
                 <div className="p-2 bg-Yellow-800 text-Gray-100 rounded-full">
                   <ShoppingCart size={16} weight="fill" />
@@ -57,8 +57,6 @@ export function Index() {
                   Embalagem mantém o café intacto
                 </span>
               </div>
-            </div>
-            <div className="flex flex-wrap mt-5 gap-y-5 gap-x-10 mr-[0.6rem] lg:mr-0">
               <div className="ad-box flex items-center justify-start">
                 <div className="p-2 bg-Yellow-500 text-Gray-100 rounded-full">
                   <Timer size={16} weight="fill" />
@@ -110,11 +108,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -146,11 +146,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -182,11 +184,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -218,11 +222,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -254,11 +260,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -290,11 +298,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -326,11 +336,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -362,11 +374,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -398,11 +412,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -434,11 +450,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -470,11 +488,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -506,11 +526,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -542,11 +564,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -578,11 +602,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
@@ -614,11 +640,13 @@ export function Index() {
                 <strong className="baloo font-extrabold text-2xl">9,90</strong>
               </div>
               <div className="flex items-center justify-between gap-x-2">
-                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500">
+                <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
                   <button className="text-Purple-500">
                     <Minus size={14} weight="fill" />
                   </button>
-                  <span className="text-Black-800 mx-1 ">1</span>
+                  <span className="text-Black-800 mx-1">
+                    <strong>0</strong>
+                  </span>
                   <button className="text-Purple-500">
                     <Plus size={14} weight="fill" />
                   </button>
