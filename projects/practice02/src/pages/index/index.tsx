@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom'
 import {
   Coffee,
   Minus,
@@ -8,28 +7,11 @@ import {
   ShoppingCartSimple,
   Timer,
 } from 'phosphor-react'
-import { Div, Header } from './styles'
+import { Div } from './styles'
 
 export function Index() {
   return (
     <>
-      <Header.container className="flex justify-between items-center mt-8">
-        <img src="/logo.svg" alt="project-logo" />
-        <nav className="flex items-center justify-center">
-          <NavLink
-            to="/"
-            className="p-2 bg-Yellow-100 text-Yellow-800 rounded-md hover:opacity-80"
-          >
-            <Coffee size={22} weight="fill" />
-          </NavLink>
-          <NavLink
-            to="/carrinho"
-            className="p-2 bg-Yellow-100 text-Yellow-800 rounded-md hover:opacity-80 ml-2"
-          >
-            <ShoppingCart size={22} weight="fill" />
-          </NavLink>
-        </nav>
-      </Header.container>
       <div className="mt-32 flex justify-between flex-wrap-reverse lg:flex-nowrap gap-y-8">
         <div className="flex flex-col text-center lg:text-left">
           <h2 className="baloo text-5xl font-extrabold leading-tight text-Black-800">
