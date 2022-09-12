@@ -1,27 +1,35 @@
 import { Div } from './styles'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import { CoffeeType } from '../../../../code/data/Coffees/types'
 
-export function CoffeeInfo() {
+export function CoffeeInfo({ coffee }: { coffee: CoffeeType }) {
   return (
     <Div.coffee className="bg-Gray-200 flex flex-col items-center p-5 w-64 h-80 relative justify-end">
       <img
-        src="coffees/expresso-tradicional.svg"
+        src={coffee.fileUrl}
         alt="coffee-type"
         className="coffee-image-product absolute"
       />
-      <span className="type py-1 px-2 bg-Yellow-100 text-xs leading-tight font-bold text-Yellow-800 mb-4 mt-3">
-        TRADICIONAL
-      </span>
+      {coffee.categories.map((category) => (
+        <span
+          className="type py-1 px-2 bg-Yellow-100 text-xs leading-tight font-bold text-Yellow-800 mb-4 mt-3"
+          key={category}
+        >
+          {category}
+        </span>
+      ))}
       <h3 className="text-Black-500 font-bold text-xl leading-tight">
-        Expresso Tradicional
+        {coffee.name}
       </h3>
       <span className="text-Black-100 text-sm mt-1 text-center">
-        O tradicional café feito com água quente e grãos moídos
+        {coffee.description}
       </span>
       <div className="buy flex items-center justify-between mt-8 w-full">
         <div className="text-Black-300 leading-tight">
           <span className="text-sm">R$</span>{' '}
-          <strong className="baloo font-extrabold text-2xl">9,90</strong>
+          <strong className="baloo font-extrabold text-2xl">
+            {coffee.price.toFixed(2).toString().replace('.', ',')}
+          </strong>
         </div>
         <div className="flex items-center justify-between gap-x-2">
           <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">

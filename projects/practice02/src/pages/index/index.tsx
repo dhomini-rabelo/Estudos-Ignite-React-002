@@ -1,4 +1,5 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import { Coffees } from '../../code/data/Coffees'
 import { CoffeeInfo } from './components/CoffeInfo'
 
 export function Index() {
@@ -61,14 +62,9 @@ export function Index() {
           Nossos cafés
         </h2>
         <div className="mt-12 flex flex-wrap gap-x-8 gap-y-10 mx-auto justify-center items-center">
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
-          <CoffeeInfo />
+          {Coffees.map((coffee) => (
+            <CoffeeInfo coffee={coffee} key={coffee.id} />
+          ))}
         </div>
       </main>
     </>
