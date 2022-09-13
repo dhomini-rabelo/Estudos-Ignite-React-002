@@ -38,6 +38,7 @@
 body {
     background-color: var(--Gray-100);
     min-height: 100%;
+    color: var(--Black-500);
 }
 
 #root {
