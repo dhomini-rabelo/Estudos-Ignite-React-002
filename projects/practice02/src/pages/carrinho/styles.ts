@@ -5,8 +5,7 @@ export const Div = {
     .border-separation {
       border: 1px solid var(--Gray-500);
     }
-  `,
-  coffeeBuy: styled.div`
     border-radius: 6px 44px;
   `,
+  coffeeBuy: styled.div``,
 }

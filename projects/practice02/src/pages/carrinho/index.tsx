@@ -173,6 +173,23 @@ export function Cart() {
                 <strong className="text-Black-800">R$ 9,90</strong>
               </Div.coffeeBuy>
               <div className="border-separation my-6"></div>
+              <div className="mb-6 flex flex-col gap-y-3">
+                <div className="flex justify-between items-center text-Black-300 leading-tight">
+                  <span className="text-sm">Itens</span>
+                  <span>R$ 26,50</span>
+                </div>
+                <div className="flex justify-between items-center text-Black-300 leading-tight">
+                  <span className="text-sm">Entrega</span>
+                  <span>R$ 6,50</span>
+                </div>
+                <div className="flex justify-between items-center text-Black-300 bold text-xl leading-tight">
+                  <strong>Total</strong>
+                  <strong>R$ 33,00</strong>
+                </div>
+              </div>
+              <button className="w-full py-3 px-2 bg-Yellow-500 rounded-md text-white text-sm bold leading-relaxed">
+                CONFIRMAR PEDIDO
+              </button>
             </Div.coffeeBuyContainer>
           </div>
         </div>
