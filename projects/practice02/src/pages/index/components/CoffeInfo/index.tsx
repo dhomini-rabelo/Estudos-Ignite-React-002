@@ -32,7 +32,7 @@ export function CoffeeInfo({ coffee }: { coffee: CoffeeType }) {
           </strong>
         </div>
         <div className="flex items-center justify-between gap-x-2">
-          <div className="gb-Gray-500 p-2 rounded-md bg-Gray-500 flex items-center justify-center">
+          <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center">
             <button className="text-Purple-500">
               <Minus size={14} weight="fill" />
             </button>
