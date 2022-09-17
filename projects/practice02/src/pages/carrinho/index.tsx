@@ -76,7 +76,7 @@ export function Cart() {
                   </div>
                 </div>
                 <div className="grid grid-cols-3 gap-x-3 mt-8">
-                  <button className="bg-Gray-500 rounded-md p-4 text-Black-300">
+                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
                     <div className="flex items-center">
                       <CreditCard
                         size={16}
@@ -85,13 +85,13 @@ export function Cart() {
                       <span className="text-xs">CARTÃO DE CRÉDITO</span>
                     </div>
                   </button>
-                  <button className="bg-Gray-500 rounded-md p-4 text-Black-300">
+                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
                     <div className="flex items-center">
                       <Bank size={16} className="text-Purple-500 inline mr-3" />
                       <span className="text-xs">CARTÃO DE DÉBITO</span>
                     </div>
                   </button>
-                  <button className="bg-Gray-500 rounded-md p-4 text-Black-300">
+                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
                     <div className="flex items-center">
                       <Money
                         size={16}
@@ -119,17 +119,17 @@ export function Cart() {
                   <span className="leading-tight">Expresso tradicional</span>
                   <div className="flex mt-2 gap-x-2">
                     <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center w-16 h-8">
-                      <button className="text-Purple-500">
+                      <button className="text-Purple-500 hover:text-Purple-800">
                         <Minus size={14} weight="fill" />
                       </button>
                       <span className="text-Black-800 mx-1">
                         <strong>0</strong>
                       </span>
-                      <button className="text-Purple-500">
+                      <button className="text-Purple-500 hover:text-Purple-800">
                         <Plus size={14} weight="fill" />
                       </button>
                     </div>
-                    <button className="h-8 bg-Gray-500 px-2 rounded-md text-sm">
+                    <button className="h-8 bg-Gray-500 hover:bg-Gray-800 px-2 rounded-md text-sm">
                       <Trash
                         size={16}
                         className="text-Purple-500 inline-block mr-1"
@@ -151,17 +151,17 @@ export function Cart() {
                   <span className="leading-tight">Expresso tradicional</span>
                   <div className="flex mt-2 gap-x-2">
                     <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center w-16 h-8">
-                      <button className="text-Purple-500">
+                      <button className="text-Purple-500 hover:text-Purple-800">
                         <Minus size={14} weight="fill" />
                       </button>
                       <span className="text-Black-800 mx-1">
                         <strong>0</strong>
                       </span>
-                      <button className="text-Purple-500">
+                      <button className="text-Purple-500 hover:text-Purple-800">
                         <Plus size={14} weight="fill" />
                       </button>
                     </div>
-                    <button className="h-8 bg-Gray-500 px-2 rounded-md text-sm">
+                    <button className="h-8 bg-Gray-500 hover:bg-Gray-800 px-2 rounded-md text-sm">
                       <Trash
                         size={16}
                         className="text-Purple-500 inline-block mr-1"
@@ -187,7 +187,7 @@ export function Cart() {
                   <strong>R$ 33,00</strong>
                 </div>
               </div>
-              <button className="w-full py-3 px-2 bg-Yellow-500 rounded-md text-white text-sm bold leading-relaxed">
+              <button className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
                 CONFIRMAR PEDIDO
               </button>
             </Div.coffeeBuyContainer>

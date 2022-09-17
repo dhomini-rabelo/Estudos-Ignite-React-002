@@ -33,17 +33,17 @@ export function CoffeeInfo({ coffee }: { coffee: CoffeeType }) {
         </div>
         <div className="flex items-center justify-between gap-x-2">
           <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center">
-            <button className="text-Purple-500">
+            <button className="text-Purple-500 hover:text-Purple-800">
               <Minus size={14} weight="fill" />
             </button>
             <span className="text-Black-800 mx-1">
               <strong>0</strong>
             </span>
-            <button className="text-Purple-500">
+            <button className="text-Purple-500 hover:text-Purple-800">
               <Plus size={14} weight="fill" />
             </button>
           </div>
-          <button className="bg-Purple-800 text-Gray-200 p-2 rounded-md">
+          <button className="bg-Purple-800 hover:bg-Purple-500 text-Gray-200 p-2 rounded-md">
             <ShoppingCartSimple size={22} weight="fill" />
           </button>
         </div>
