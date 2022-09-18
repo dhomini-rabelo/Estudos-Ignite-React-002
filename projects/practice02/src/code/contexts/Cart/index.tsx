@@ -16,8 +16,17 @@ export function SaleProvider({ children }: { children: ReactNode }) {
     saleDispatch(SaleConsumer.addQuantity(coffeeId))
   }
 
+  function removeQuantityForProduct(coffeeId: number) {
+    saleDispatch(SaleConsumer.removeQuantity(coffeeId))
+  }
+
   return (
-    <SaleContext.Provider value={{ sale, addQuantityForProduct }}>
+    <SaleContext.Provider
+      value={{
+        sale,
+        actions: { addQuantityForProduct, removeQuantityForProduct },
+      }}
+    >
       {children}
     </SaleContext.Provider>
   )

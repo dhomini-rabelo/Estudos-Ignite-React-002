@@ -9,4 +9,12 @@ export const SaleConsumer = {
       },
     }
   },
+  removeQuantity(coffeeId: number) {
+    return {
+      type: SaleActionsOptions.REMOVE_QUANTITY_FOR_PRODUCT,
+      payload: {
+        id: coffeeId,
+      },
+    }
+  },
 }

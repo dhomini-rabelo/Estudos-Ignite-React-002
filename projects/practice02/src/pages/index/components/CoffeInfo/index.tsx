@@ -3,12 +3,19 @@ import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import { ProductType } from '../../../../code/contexts/Cart/types'
 import { useContext } from 'react'
 import { SaleContext } from '../../../../code/contexts/Cart'
+import { Link } from 'react-router-dom'
 
 export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
-  const { addQuantityForProduct } = useContext(SaleContext)
+  const {
+    actions: { addQuantityForProduct, removeQuantityForProduct },
+  } = useContext(SaleContext)
 
   function handleAddQuantityForProduct() {
     addQuantityForProduct(coffee.id)
+  }
+
+  function handleRemoveQuantityForProduct() {
+    removeQuantityForProduct(coffee.id)
   }
 
   return (
@@ -41,7 +48,10 @@ export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
         </div>
         <div className="flex items-center justify-between gap-x-2">
           <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center">
-            <button className="text-Purple-500 hover:text-Purple-800">
+            <button
+              className="text-Purple-500 hover:text-Purple-800"
+              onClick={handleRemoveQuantityForProduct}
+            >
               <Minus size={14} weight="fill" />
             </button>
             <span className="text-Black-800 mx-1">
@@ -54,9 +64,12 @@ export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
               <Plus size={14} weight="fill" />
             </button>
           </div>
-          <button className="bg-Purple-800 hover:bg-Purple-500 text-Gray-200 p-2 rounded-md">
+          <Link
+            to="/carrinho"
+            className="bg-Purple-800 hover:bg-Purple-500 text-Gray-200 p-2 rounded-md"
+          >
             <ShoppingCartSimple size={22} weight="fill" />
-          </button>
+          </Link>
         </div>
       </div>
     </Div.coffee>

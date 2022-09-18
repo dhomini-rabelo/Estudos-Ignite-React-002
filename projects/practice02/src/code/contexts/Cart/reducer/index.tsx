@@ -18,5 +18,17 @@ export function SaleReducer(
         products: newProductsList,
       }
     }
+    case SaleActionsOptions.REMOVE_QUANTITY_FOR_PRODUCT: {
+      const newProductsList = state.products.map((product: ProductType) => {
+        if (product.id === action.payload.id) {
+          const newProductQuantity = product.quantity - 1
+          return { ...product, quantity: newProductQuantity }
+        }
+        return product
+      })
+      return {
+        products: newProductsList,
+      }
+    }
   }
 }
