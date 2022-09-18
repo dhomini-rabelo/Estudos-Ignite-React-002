@@ -4,8 +4,17 @@ export interface ProductType extends CoffeeType {
   quantity: number
 }
 
+/* eslint-disable */
+export enum PaymentMethods {
+  CREDIT = 'CREDIT',
+  DEBIT = 'DEBIT',
+  MONEY = 'MONEY',
+}
+/* eslint-enable */
+
 export interface SaleType {
   products: ProductType[]
+  paymentMethod: PaymentMethods | null
 }
 
 export interface SaleContextType {

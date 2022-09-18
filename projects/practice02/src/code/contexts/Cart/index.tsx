@@ -10,6 +10,7 @@ export const SaleContext = createContext<SaleContextType>({} as SaleContextType)
 export function SaleProvider({ children }: { children: ReactNode }) {
   const [sale, saleDispatch] = useReducer(SaleReducer, {
     products: Coffees.map((coffee: CoffeeType) => ({ ...coffee, quantity: 0 })),
+    paymentMethod: null,
   })
 
   function addQuantityForProduct(coffeeId: number) {
