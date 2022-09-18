@@ -6,13 +6,6 @@ export function SaleReducer(
   action: SaleActionParamType,
 ): SaleType {
   switch (action.type) {
-    case SaleActionsOptions.ADD_PRODUCT:
-      return {
-        products: [
-          ...state.products,
-          { ...action.payload.newCoffee, quantity: 1 },
-        ],
-      }
     case SaleActionsOptions.ADD_QUANTITY_FOR_PRODUCT: {
       const newProductsList = state.products.map((product: ProductType) => {
         if (product.id === action.payload.id) {
