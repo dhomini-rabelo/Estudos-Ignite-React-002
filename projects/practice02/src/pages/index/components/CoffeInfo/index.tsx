@@ -3,6 +3,7 @@ import { ShoppingCartSimple } from 'phosphor-react'
 import { ProductType } from '../../../../code/contexts/Cart/types'
 import { Link } from 'react-router-dom'
 import { ProductCounter } from '../../../../layouts/components/ProductCounter'
+import { adaptMoneyValue } from '../../../../code/utils/values'
 
 export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
   return (
@@ -30,7 +31,7 @@ export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
         <div className="text-Black-300 leading-tight">
           <span className="text-sm">R$</span>{' '}
           <strong className="baloo font-extrabold text-2xl">
-            {coffee.price.toFixed(2).toString().replace('.', ',')}
+            {adaptMoneyValue(coffee.price)}
           </strong>
         </div>
         <div className="flex items-center justify-between gap-x-2">
