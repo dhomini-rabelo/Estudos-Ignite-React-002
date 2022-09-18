@@ -1,3 +1,4 @@
+import { PaymentMethods } from '../types'
 import { SaleActionsOptions } from './types'
 
 export const SaleConsumer = {
@@ -25,7 +26,7 @@ export const SaleConsumer = {
       },
     }
   },
-  setPaymentMethod(paymentMethod: SaleActionsOptions) {
+  setPaymentMethod(paymentMethod: PaymentMethods) {
     return {
       type: SaleActionsOptions.SET_PAYMENT_METHOD,
       payload: {

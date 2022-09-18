@@ -1,5 +1,4 @@
 import { CoffeeType } from '../../data/Coffees/types'
-import { SaleActionsOptions } from './reducer/types'
 
 export interface ProductType extends CoffeeType {
   quantity: number
@@ -24,6 +23,6 @@ export interface SaleContextType {
     addQuantityForProduct: (coffeeId: number) => void
     removeQuantityForProduct: (coffeeId: number) => void
     removeProductFromCart: (coffeeId: number) => void
-    setPaymentMethod: (paymentMethod: SaleActionsOptions) => void
+    setPaymentMethod: (paymentMethod: PaymentMethods) => void
   }
 }
