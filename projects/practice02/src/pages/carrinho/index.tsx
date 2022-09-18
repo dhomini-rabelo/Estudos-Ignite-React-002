@@ -8,14 +8,21 @@ import {
 import { useContext } from 'react'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
+import { adaptMoneyValue } from '../../code/utils/values'
 import * as Input from '../../layouts/elements/Input'
 import { CoffeeBuy } from './CoffeeBuy'
 import { Div } from './styles'
 
 export function Cart() {
   const { sale } = useContext(SaleContext)
+  const shippingPrice = 6.5
   const productsForBuy = sale.products.filter(
     (product: ProductType) => product.quantity > 0,
+  )
+  const productsPrice = productsForBuy.reduce(
+    (accumulator: number, state: ProductType) =>
+      (accumulator * 100 + state.price * 100 * state.quantity) / 100,
+    0,
   )
 
   return (
@@ -124,15 +131,20 @@ export function Cart() {
               <div className="mb-6 flex flex-col gap-y-3">
                 <div className="flex justify-between items-center text-Black-300 leading-tight">
                   <span className="text-sm">Itens</span>
-                  <span>R$ 26,50</span>
+                  <span>R$ {adaptMoneyValue(productsPrice)}</span>
                 </div>
                 <div className="flex justify-between items-center text-Black-300 leading-tight">
                   <span className="text-sm">Entrega</span>
-                  <span>R$ 6,50</span>
+                  <span>R$ {adaptMoneyValue(shippingPrice)}</span>
                 </div>
                 <div className="flex justify-between items-center text-Black-300 bold text-xl leading-tight">
                   <strong>Total</strong>
-                  <strong>R$ 33,00</strong>
+                  <strong>
+                    R${' '}
+                    {adaptMoneyValue(
+                      ((productsPrice + shippingPrice) * 100) / 100,
+                    )}
+                  </strong>
                 </div>
               </div>
               <button className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
