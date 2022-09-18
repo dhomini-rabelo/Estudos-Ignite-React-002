@@ -1,9 +1,9 @@
 import { Trash } from 'phosphor-react'
 import { useContext } from 'react'
-import { SaleContext } from '../../../code/contexts/Cart'
-import { ProductType } from '../../../code/contexts/Cart/types'
-import { adaptMoneyValue } from '../../../code/utils/values'
-import { ProductCounter } from '../../../layouts/components/ProductCounter'
+import { SaleContext } from '../../../../code/contexts/Cart'
+import { ProductType } from '../../../../code/contexts/Cart/types'
+import { adaptMoneyValue } from '../../../../code/utils/values'
+import { ProductCounter } from '../../../../layouts/components/ProductCounter'
 
 export function CoffeeBuy({ coffee }: { coffee: ProductType }) {
   const {

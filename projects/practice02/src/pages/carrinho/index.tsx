@@ -10,7 +10,7 @@ import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
 import { adaptMoneyValue } from '../../code/utils/values'
 import * as Input from '../../layouts/elements/Input'
-import { CoffeeBuy } from './CoffeeBuy'
+import { CoffeeBuy } from './components/CoffeeBuy'
 import { Div } from './styles'
 
 export function Cart() {
