@@ -1,16 +1,11 @@
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollar,
-  MapPinLine,
-  Money,
-} from 'phosphor-react'
+import { MapPinLine } from 'phosphor-react'
 import { useContext } from 'react'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
 import { adaptMoneyValue } from '../../code/utils/values'
 import * as Input from '../../layouts/elements/Input'
 import { CoffeeBuy } from './components/CoffeeBuy'
+import { PayMentMethod } from './components/PaymentMethod'
 import { Div } from './styles'
 
 export function Cart() {
@@ -21,7 +16,7 @@ export function Cart() {
   )
   const productsPrice = productsForBuy.reduce(
     (accumulator: number, state: ProductType) =>
-      (accumulator * 100 + state.price * 100 * state.quantity) / 100,
+      ((accumulator + state.price * state.quantity) * 100) / 100,
     0,
   )
 
@@ -77,44 +72,7 @@ export function Cart() {
               </div>
             </div>
             <div className="w-full mt-3">
-              <div className="bg-Gray-200 p-10  rounded-md">
-                <div className="flex gap-x-2">
-                  <CurrencyDollar size={22} className="text-Purple-500" />
-                  <div className="flex flex-col">
-                    <span className="leading-tight">Pagamento</span>
-                    <span className="text-sm leading-tight text-Black-300">
-                      O pagamento é feito na entrega. Escolha a forma que deseja
-                      pagar
-                    </span>
-                  </div>
-                </div>
-                <div className="grid grid-cols-3 gap-x-3 mt-8">
-                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
-                    <div className="flex items-center">
-                      <CreditCard
-                        size={16}
-                        className="text-Purple-500 inline mr-3"
-                      />
-                      <span className="text-xs">CARTÃO DE CRÉDITO</span>
-                    </div>
-                  </button>
-                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
-                    <div className="flex items-center">
-                      <Bank size={16} className="text-Purple-500 inline mr-3" />
-                      <span className="text-xs">CARTÃO DE DÉBITO</span>
-                    </div>
-                  </button>
-                  <button className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300">
-                    <div className="flex items-center">
-                      <Money
-                        size={16}
-                        className="text-Purple-500 inline mr-3"
-                      />
-                      <span className="text-xs">DINHEIRO</span>
-                    </div>
-                  </button>
-                </div>
-              </div>
+              <PayMentMethod />
             </div>
           </div>
           <div className="w-full col-span-2">
