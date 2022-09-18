@@ -15,7 +15,9 @@ export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
   }
 
   function handleRemoveQuantityForProduct() {
-    removeQuantityForProduct(coffee.id)
+    if (coffee.quantity > 0) {
+      removeQuantityForProduct(coffee.id)
+    }
   }
 
   return (
