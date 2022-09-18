@@ -1,13 +1,8 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { useContext } from 'react'
-import { SaleContext } from '../../code/contexts/Cart'
 import { Coffees } from '../../code/data/Coffees'
 import { CoffeeInfo } from './components/CoffeInfo'
 
 export function Index() {
-  const { sale } = useContext(SaleContext)
-  console.log(sale)
-
   return (
     <>
       <div className="mt-32 flex justify-between flex-wrap-reverse lg:flex-nowrap gap-y-8">
