@@ -25,4 +25,12 @@ export const SaleConsumer = {
       },
     }
   },
+  setPaymentMethod(paymentMethod: SaleActionsOptions) {
+    return {
+      type: SaleActionsOptions.SET_PAYMENT_METHOD,
+      payload: {
+        paymentMethod,
+      },
+    }
+  },
 }

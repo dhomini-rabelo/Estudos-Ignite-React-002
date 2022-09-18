@@ -25,6 +25,10 @@ export function SaleReducer(
           getProductIndexById(action.payload.id, state.products)
         ].quantity = 0
       })
+    case SaleActionsOptions.SET_PAYMENT_METHOD:
+      return produce(state, (draft) => {
+        draft.paymentMethod = action.payload.paymentMethod
+      })
   }
 
   function getProductIndexById(id: number, products: ProductType[]) {

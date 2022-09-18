@@ -3,6 +3,7 @@ import { Coffees } from '../../data/Coffees'
 import { CoffeeType } from '../../data/Coffees/types'
 import { SaleReducer } from './reducer'
 import { SaleConsumer } from './reducer/actions'
+import { SaleActionsOptions } from './reducer/types'
 import { SaleContextType } from './types'
 
 export const SaleContext = createContext<SaleContextType>({} as SaleContextType)
@@ -25,6 +26,10 @@ export function SaleProvider({ children }: { children: ReactNode }) {
     saleDispatch(SaleConsumer.removeProduct(coffeeId))
   }
 
+  function setPaymentMethod(paymentMethod: SaleActionsOptions) {
+    saleDispatch(SaleConsumer.setPaymentMethod(paymentMethod))
+  }
+
   return (
     <SaleContext.Provider
       value={{
@@ -33,6 +38,7 @@ export function SaleProvider({ children }: { children: ReactNode }) {
           addQuantityForProduct,
           removeQuantityForProduct,
           removeProductFromCart,
+          setPaymentMethod,
         },
       }}
     >
