@@ -8,5 +8,9 @@ export const Header = {
     a.active {
       border: 2px solid var(--Yellow-800);
     }
+    .items-counter {
+      right: -8.35px;
+      top: -8px;
+    }
   `,
 }
