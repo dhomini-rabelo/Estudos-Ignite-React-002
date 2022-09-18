@@ -17,4 +17,12 @@ export const SaleConsumer = {
       },
     }
   },
+  removeProduct(coffeeId: number) {
+    return {
+      type: SaleActionsOptions.REMOVE_ALL_QUANTITY_FOR_PRODUCT,
+      payload: {
+        id: coffeeId,
+      },
+    }
+  },
 }

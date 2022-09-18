@@ -19,6 +19,12 @@ export function SaleReducer(
           getProductIndexById(action.payload.id, state.products)
         ].quantity -= 1
       })
+    case SaleActionsOptions.REMOVE_ALL_QUANTITY_FOR_PRODUCT:
+      return produce(state, (draft) => {
+        draft.products[
+          getProductIndexById(action.payload.id, state.products)
+        ].quantity = 0
+      })
   }
 
   function getProductIndexById(id: number, products: ProductType[]) {

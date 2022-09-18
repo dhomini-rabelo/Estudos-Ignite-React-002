@@ -13,5 +13,6 @@ export interface SaleContextType {
   actions: {
     addQuantityForProduct: (coffeeId: number) => void
     removeQuantityForProduct: (coffeeId: number) => void
+    removeProductFromCart: (coffeeId: number) => void
   }
 }
