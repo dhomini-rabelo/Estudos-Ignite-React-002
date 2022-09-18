@@ -1,8 +1,16 @@
 import { Div } from './styles'
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { CoffeeType } from '../../../../code/data/Coffees/types'
+import { ProductType } from '../../../../code/contexts/Cart/types'
+import { useContext } from 'react'
+import { SaleContext } from '../../../../code/contexts/Cart'
 
-export function CoffeeInfo({ coffee }: { coffee: CoffeeType }) {
+export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
+  const { addQuantityForProduct } = useContext(SaleContext)
+
+  function handleAddQuantityForProduct() {
+    addQuantityForProduct(coffee.id)
+  }
+
   return (
     <Div.coffee className="bg-Gray-200 flex flex-col items-center p-5 w-64 h-80 relative justify-end">
       <img
@@ -37,9 +45,12 @@ export function CoffeeInfo({ coffee }: { coffee: CoffeeType }) {
               <Minus size={14} weight="fill" />
             </button>
             <span className="text-Black-800 mx-1">
-              <strong>0</strong>
+              <strong>{coffee.quantity}</strong>
             </span>
-            <button className="text-Purple-500 hover:text-Purple-800">
+            <button
+              className="text-Purple-500 hover:text-Purple-800"
+              onClick={handleAddQuantityForProduct}
+            >
               <Plus size={14} weight="fill" />
             </button>
           </div>

@@ -1,8 +1,11 @@
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
-import { Coffees } from '../../code/data/Coffees'
+import { useContext } from 'react'
+import { SaleContext } from '../../code/contexts/Cart'
 import { CoffeeInfo } from './components/CoffeInfo'
 
 export function Index() {
+  const { sale } = useContext(SaleContext)
+
   return (
     <>
       <div className="mt-32 flex justify-between flex-wrap-reverse lg:flex-nowrap gap-y-8">
@@ -62,7 +65,7 @@ export function Index() {
           Nossos cafés
         </h2>
         <div className="mt-12 flex flex-wrap gap-x-8 gap-y-10 mx-auto justify-center items-center">
-          {Coffees.map((coffee) => (
+          {sale.products.map((coffee) => (
             <CoffeeInfo coffee={coffee} key={coffee.id} />
           ))}
         </div>

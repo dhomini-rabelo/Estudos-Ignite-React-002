@@ -10,4 +10,5 @@ export interface SaleType {
 
 export interface SaleContextType {
   sale: SaleType
+  addQuantityForProduct: (coffeeId: number) => void
 }

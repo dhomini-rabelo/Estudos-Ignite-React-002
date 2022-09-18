@@ -8,10 +8,14 @@ import {
   Plus,
   Trash,
 } from 'phosphor-react'
+import { useContext } from 'react'
+import { SaleContext } from '../../code/contexts/Cart'
 import * as Input from '../../layouts/elements/Input'
 import { Div } from './styles'
 
 export function Cart() {
+  const { sale } = useContext(SaleContext)
+  console.log(sale)
   return (
     <>
       <main className="mt-16">
