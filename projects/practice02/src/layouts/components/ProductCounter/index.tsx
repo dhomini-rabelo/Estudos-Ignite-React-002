@@ -1,24 +1,23 @@
 import { Minus, Plus } from 'phosphor-react'
-import { ProductType } from '../../../code/contexts/Cart/types'
+import { useContext } from 'react'
+import { SaleContext } from '../../../code/contexts/Cart'
+import { ProductCounterProps } from './types'
 
 export function ProductCounter({
   product,
-  addQuantityFunction,
-  removeQuantityFunction,
   extraClasses = '',
-}: {
-  product: ProductType
-  addQuantityFunction: (id: number) => void
-  removeQuantityFunction: (id: number) => void
-  extraClasses?: string
-}) {
+}: ProductCounterProps) {
+  const {
+    actions: { addQuantityForProduct, removeQuantityForProduct },
+  } = useContext(SaleContext)
+
   function handleAddQuantityForProduct() {
-    addQuantityFunction(product.id)
+    addQuantityForProduct(product.id)
   }
 
   function handleRemoveQuantityForProduct() {
     if (product.quantity > 0) {
-      removeQuantityFunction(product.id)
+      removeQuantityForProduct(product.id)
     }
   }
 
