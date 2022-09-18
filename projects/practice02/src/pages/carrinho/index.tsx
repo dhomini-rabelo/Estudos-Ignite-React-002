@@ -1,5 +1,6 @@
-import { MapPinLine } from 'phosphor-react'
+import { MapPinLine, ShoppingCart } from 'phosphor-react'
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
 import { adaptMoneyValue } from '../../code/utils/values'
@@ -20,6 +21,7 @@ export function Cart() {
     0,
   )
 
+  /* eslint-disable */
   return (
     <>
       <main className="mt-16">
@@ -86,28 +88,40 @@ export function Cart() {
                   <div className="border-separation my-6"></div>
                 </>
               ))}
-              <div className="mb-6 flex flex-col gap-y-3">
-                <div className="flex justify-between items-center text-Black-300 leading-tight">
-                  <span className="text-sm">Itens</span>
-                  <span>R$ {adaptMoneyValue(productsPrice)}</span>
+              {productsForBuy.length === 0 ? (
+                <div className="flex flex-col items-center justify-center gap-y-2 h-64">
+                  <ShoppingCart size={64} weight="fill" className="text-Yellow-800" />
+                  <span className="text-Black-100">O carrinho está vazio</span>
+                  <Link to="/" className="py-2 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-xs bold leading-relaxed">
+                    COMPRAR
+                  </Link>
                 </div>
-                <div className="flex justify-between items-center text-Black-300 leading-tight">
-                  <span className="text-sm">Entrega</span>
-                  <span>R$ {adaptMoneyValue(shippingPrice)}</span>
-                </div>
-                <div className="flex justify-between items-center text-Black-300 bold text-xl leading-tight">
-                  <strong>Total</strong>
-                  <strong>
-                    R${' '}
-                    {adaptMoneyValue(
-                      ((productsPrice + shippingPrice) * 100) / 100,
-                    )}
-                  </strong>
-                </div>
-              </div>
-              <button className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
-                CONFIRMAR PEDIDO
-              </button>
+              ) : (
+                <>
+                    <div className="mb-6 flex flex-col gap-y-3">
+                      <div className="flex justify-between items-center text-Black-300 leading-tight">
+                        <span className="text-sm">Itens</span>
+                        <span>R$ {adaptMoneyValue(productsPrice)}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-Black-300 leading-tight">
+                        <span className="text-sm">Entrega</span>
+                        <span>R$ {adaptMoneyValue(shippingPrice)}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-Black-300 bold text-xl leading-tight">
+                        <strong>Total</strong>
+                        <strong>
+                          R${' '}
+                          {adaptMoneyValue(
+                            ((productsPrice + shippingPrice) * 100) / 100,
+                          )}
+                        </strong>
+                      </div>
+                    </div>
+                    <button className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
+                      CONFIRMAR PEDIDO
+                    </button>
+                </>
+              )}
             </Div.coffeeBuyContainer>
           </div>
         </div>
