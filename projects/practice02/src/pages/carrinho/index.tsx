@@ -3,19 +3,21 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
-  Minus,
   Money,
-  Plus,
-  Trash,
 } from 'phosphor-react'
 import { useContext } from 'react'
 import { SaleContext } from '../../code/contexts/Cart'
+import { ProductType } from '../../code/contexts/Cart/types'
 import * as Input from '../../layouts/elements/Input'
+import { CoffeeBuy } from './CoffeeBuy'
 import { Div } from './styles'
 
 export function Cart() {
   const { sale } = useContext(SaleContext)
-  console.log(sale)
+  const productsForBuy = sale.products.filter(
+    (product: ProductType) => product.quantity > 0,
+  )
+
   return (
     <>
       <main className="mt-16">
@@ -113,70 +115,12 @@ export function Cart() {
               Cafés selecionados
             </h2>
             <Div.coffeeBuyContainer className="bg-Gray-200 p-10 rounded-md">
-              <Div.coffeeBuy className="coffee-buy flex items-start">
-                <img
-                  src="/coffees/expresso-tradicional.svg"
-                  alt="coffee-image"
-                  className="w-16 h-16"
-                />
-                <div className="coffee-data flex flex-col justify-center grow pl-5">
-                  <span className="leading-tight">Expresso tradicional</span>
-                  <div className="flex mt-2 gap-x-2">
-                    <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center w-16 h-8">
-                      <button className="text-Purple-500 hover:text-Purple-800">
-                        <Minus size={14} weight="fill" />
-                      </button>
-                      <span className="text-Black-800 mx-1">
-                        <strong>0</strong>
-                      </span>
-                      <button className="text-Purple-500 hover:text-Purple-800">
-                        <Plus size={14} weight="fill" />
-                      </button>
-                    </div>
-                    <button className="h-8 bg-Gray-500 hover:bg-Gray-800 px-2 rounded-md text-sm">
-                      <Trash
-                        size={16}
-                        className="text-Purple-500 inline-block mr-1"
-                      />
-                      <span>REMOVER</span>
-                    </button>
-                  </div>
-                </div>
-                <strong className="text-Black-800">R$ 9,90</strong>
-              </Div.coffeeBuy>
-              <div className="border-separation my-6"></div>
-              <Div.coffeeBuy className="coffee-buy flex items-start">
-                <img
-                  src="/coffees/expresso-tradicional.svg"
-                  alt="coffee-image"
-                  className="w-16 h-16"
-                />
-                <div className="coffee-data flex flex-col justify-center grow pl-5">
-                  <span className="leading-tight">Expresso tradicional</span>
-                  <div className="flex mt-2 gap-x-2">
-                    <div className="p-2 rounded-md bg-Gray-500 flex items-center justify-center w-16 h-8">
-                      <button className="text-Purple-500 hover:text-Purple-800">
-                        <Minus size={14} weight="fill" />
-                      </button>
-                      <span className="text-Black-800 mx-1">
-                        <strong>0</strong>
-                      </span>
-                      <button className="text-Purple-500 hover:text-Purple-800">
-                        <Plus size={14} weight="fill" />
-                      </button>
-                    </div>
-                    <button className="h-8 bg-Gray-500 hover:bg-Gray-800 px-2 rounded-md text-sm">
-                      <Trash
-                        size={16}
-                        className="text-Purple-500 inline-block mr-1"
-                      />
-                      <span>REMOVER</span>
-                    </button>
-                  </div>
-                </div>
-                <strong className="text-Black-800">R$ 9,90</strong>
-              </Div.coffeeBuy>
-              <div className="border-separation my-6"></div>
+              {productsForBuy.map((product: ProductType) => (
+                <>
+                  <CoffeeBuy coffee={product} />
+                  <div className="border-separation my-6"></div>
+                </>
+              ))}
               <div className="mb-6 flex flex-col gap-y-3">
                 <div className="flex justify-between items-center text-Black-300 leading-tight">
                   <span className="text-sm">Itens</span>
