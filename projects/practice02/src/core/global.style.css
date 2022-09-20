@@ -52,3 +52,11 @@ body {
 .baloo {
     font-family: 'Baloo 2', cursive !important;
 }
+
+.input-default {
+    border: 1px solid var(--Gray-500);
+}
+
+.input-default:focus {
+    border: 1px solid var(--Yellow-500);
+}

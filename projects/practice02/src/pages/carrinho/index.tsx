@@ -5,6 +5,7 @@ import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
 import { adaptMoneyValue } from '../../code/utils/values'
 import * as Input from '../../layouts/elements/Input'
+import { CepMaskInput } from '../../layouts/elements/Input'
 import { CoffeeBuy } from './components/CoffeeBuy'
 import { PayMentMethod } from './components/PaymentMethod'
 import { Div } from './styles'
@@ -42,7 +43,7 @@ export function Cart() {
                   </div>
                 </div>
                 <div className="grid grid-cols-3 mt-8 gap-x-3 gap-y-4">
-                  <Input.form type="text" placeholder="CEP" />
+                  <CepMaskInput type="text" placeholder="CEP" />
                   <div className="grid grid-cols-5 col-span-2 gap-x-3">
                     <Input.form
                       type="text"
