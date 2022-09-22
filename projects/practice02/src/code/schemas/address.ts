@@ -6,16 +6,16 @@ export interface AddressSchemaType {
   state: string
   district: string
   road: string
-  complement: string
+  complement: string | undefined
   number: string
 }
 
 export const AddressSchema = zod.object({
-  zipCode: zod.string(),
+  zipCode: zod.string().length(8),
   city: zod.string(),
-  state: zod.string(),
+  state: zod.string().length(2),
   district: zod.string(),
   road: zod.string(),
-  complement: zod.string(),
+  complement: zod.string().optional(),
   number: zod.string(),
 })
