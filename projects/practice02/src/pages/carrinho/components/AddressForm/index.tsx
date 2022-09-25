@@ -1,5 +1,6 @@
 import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
+import Cleave from 'cleave.js/react'
 
 export function AddressForm() {
   const { register } = useFormContext()
@@ -16,8 +17,13 @@ export function AddressForm() {
         </div>
       </div>
       <div className="grid grid-cols-3 mt-8 gap-x-3 gap-y-4">
-        <input
-          className="default-input"
+        <Cleave
+          options={{
+            blocks: [5, 3],
+            delimiters: ['-'],
+            numericOnly: true,
+          }}
+          className="default-input cep-mask"
           type="text"
           placeholder="CEP"
           {...register('zipCode')}
