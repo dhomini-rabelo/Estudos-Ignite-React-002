@@ -4,6 +4,7 @@ import Cleave from 'cleave.js/react'
 
 export function AddressForm() {
   const { register } = useFormContext()
+  const { ref: zipCodeRef, ...zipCodeConfigRest } = register('zipCode')
 
   return (
     <>
@@ -26,7 +27,11 @@ export function AddressForm() {
           className="default-input cep-mask"
           type="text"
           placeholder="CEP"
-          {...register('zipCode')}
+          htmlRef={zipCodeRef}
+          {...zipCodeConfigRest}
+          required
+          maxLength={9}
+          minLength={9}
         />
         <div className="grid grid-cols-5 col-span-2 gap-x-3">
           <input
@@ -34,13 +39,16 @@ export function AddressForm() {
             className="col-span-4 default-input"
             placeholder="Cidade"
             {...register('city')}
+            required
           />
           <input
             type="text"
             placeholder="UF"
             className="default-input"
             {...register('state')}
+            required
             maxLength={2}
+            minLength={2}
           />
         </div>
         <input
@@ -48,12 +56,14 @@ export function AddressForm() {
           className="default-input"
           placeholder="Bairro"
           {...register('district')}
+          required
         />
         <input
           type="text"
           className="col-span-2 default-input"
           placeholder="Rua"
           {...register('road')}
+          required
         />
         <div className="col-span-2 relative">
           <input
@@ -73,6 +83,7 @@ export function AddressForm() {
           placeholder="Número"
           className="default-input"
           {...register('number')}
+          required
         />
       </div>
     </>
