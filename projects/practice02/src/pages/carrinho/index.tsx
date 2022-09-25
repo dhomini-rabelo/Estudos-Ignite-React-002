@@ -1,12 +1,15 @@
 import { ShoppingCart } from 'phosphor-react'
 import { useContext } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
+import { AddressSchema, AddressSchemaType } from '../../code/schemas/address'
 import { adaptMoneyValue } from '../../code/utils/values'
 import { AddressForm } from './components/AddressForm'
 import { CoffeeBuy } from './components/CoffeeBuy'
 import { PayMentMethod } from './components/PaymentMethod'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Div } from './styles'
 
 export function Cart() {
@@ -21,10 +24,29 @@ export function Cart() {
     0,
   )
 
+  const AddressPageForm = useForm<AddressSchemaType>({
+    resolver: zodResolver(AddressSchema),
+    defaultValues: {
+      zipCode: '',
+      city: '',
+      state: '',
+      district: '',
+      road: '',
+      complement: '',
+      number: '',
+    },
+  })
+
+  const { handleSubmit } = AddressPageForm
+
+  function handleFormSubmit(data: AddressSchemaType) {
+    console.log('aaaaaaaaa')
+  }
+
   /* eslint-disable */
   return (
     <>
-      <main className="mt-16">
+      <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="grid grid-cols-5 gap-x-8">
           <div className="col-span-3 flex flex-col">
             <div className="w-full">
@@ -32,7 +54,9 @@ export function Cart() {
                 Complete seu pedido
               </h2>
               <div className="bg-Gray-200 p-10 rounded-md">
-                <AddressForm />
+                <FormProvider {...AddressPageForm}>
+                  <AddressForm />
+                </FormProvider>
               </div>
             </div>
             <div className="w-full mt-3">
@@ -45,10 +69,10 @@ export function Cart() {
             </h2>
             <Div.coffeeBuyContainer className="bg-Gray-200 p-10 rounded-md">
               {productsForBuy.map((product: ProductType) => (
-                <>
+                <div key={product.id}>
                   <CoffeeBuy coffee={product} />
                   <div className="border-separation my-6"></div>
-                </>
+                </div>
               ))}
               {productsForBuy.length === 0 ? (
                 <div className="flex flex-col items-center justify-center gap-y-2 h-64">
@@ -79,7 +103,7 @@ export function Cart() {
                         </strong>
                       </div>
                     </div>
-                    <button className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
+                    <button type="submit" className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
                       CONFIRMAR PEDIDO
                     </button>
                 </>
@@ -87,7 +111,7 @@ export function Cart() {
             </Div.coffeeBuyContainer>
           </div>
         </div>
-      </main>
+      </form>
     </>
   )
 }

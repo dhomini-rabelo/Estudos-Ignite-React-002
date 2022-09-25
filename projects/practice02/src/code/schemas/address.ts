@@ -11,7 +11,7 @@ export interface AddressSchemaType {
 }
 
 export const AddressSchema = zod.object({
-  zipCode: zod.string().length(8),
+  zipCode: zod.string().length(9),
   city: zod.string(),
   state: zod.string().length(2),
   district: zod.string(),
