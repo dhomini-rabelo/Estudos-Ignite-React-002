@@ -1,6 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
-import { useContext } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
+import { BaseSyntheticEvent, useContext } from 'react'
+import { FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
@@ -40,13 +40,21 @@ export function Cart() {
   const { handleSubmit } = AddressPageForm
 
   function handleFormSubmit(data: AddressSchemaType) {
-    console.log('aaaaaaaaa')
+    console.log(data)
+  }
+
+  function handleFormErrors(
+    errors: FieldErrors<AddressSchemaType>,
+    event?: BaseSyntheticEvent,
+  ) {
+    const errorMessage = Object.values(errors)[0].message
+    console.log(errorMessage)
   }
 
   /* eslint-disable */
   return (
     <>
-      <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit)}>
+      <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit, handleFormErrors)}>
         <div className="grid grid-cols-5 gap-x-8">
           <div className="col-span-3 flex flex-col">
             <div className="w-full">
@@ -103,7 +111,10 @@ export function Cart() {
                         </strong>
                       </div>
                     </div>
-                    <button type="submit" className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed">
+                    <button
+                      className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed"
+                      type="submit"
+                    >
                       CONFIRMAR PEDIDO
                     </button>
                 </>

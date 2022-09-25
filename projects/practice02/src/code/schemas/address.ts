@@ -11,9 +11,11 @@ export interface AddressSchemaType {
 }
 
 export const AddressSchema = zod.object({
-  zipCode: zod.string().length(9),
+  zipCode: zod
+    .string()
+    .length(9, 'Formato inválido para de CEP, use 00000-000.'),
   city: zod.string(),
-  state: zod.string().length(2),
+  state: zod.string().length(2, 'UF precisa ter 2 caracteres.'),
   district: zod.string(),
   road: zod.string(),
   complement: zod.string().optional(),

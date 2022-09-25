@@ -30,8 +30,6 @@ export function AddressForm() {
           htmlRef={zipCodeRef}
           {...zipCodeConfigRest}
           required
-          maxLength={9}
-          minLength={9}
         />
         <div className="grid grid-cols-5 col-span-2 gap-x-3">
           <input
@@ -47,8 +45,6 @@ export function AddressForm() {
             className="default-input"
             {...register('state')}
             required
-            maxLength={2}
-            minLength={2}
           />
         </div>
         <input
