@@ -1,6 +1,5 @@
 import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
-import * as Input from '../../../../layouts/elements/Input'
 
 export function AddressForm() {
   const { register } = useFormContext()
@@ -17,36 +16,43 @@ export function AddressForm() {
         </div>
       </div>
       <div className="grid grid-cols-3 mt-8 gap-x-3 gap-y-4">
-        <Input.form type="text" placeholder="CEP" {...register('zipCode')} />
+        <input
+          className="default-input"
+          type="text"
+          placeholder="CEP"
+          {...register('zipCode')}
+        />
         <div className="grid grid-cols-5 col-span-2 gap-x-3">
-          <Input.form
+          <input
             type="text"
-            extraClasses="col-span-4"
+            className="col-span-4 default-input"
             placeholder="Cidade"
             {...register('city')}
           />
-          <Input.form
+          <input
             type="text"
             placeholder="UF"
+            className="default-input"
             {...register('state')}
             maxLength={2}
           />
         </div>
-        <Input.form
+        <input
           type="text"
+          className="default-input"
           placeholder="Bairro"
           {...register('district')}
         />
-        <Input.form
+        <input
           type="text"
-          extraClasses="col-span-2"
+          className="col-span-2 default-input"
           placeholder="Rua"
           {...register('road')}
         />
         <div className="col-span-2 relative">
-          <Input.form
+          <input
             type="text"
-            extraClasses="w-full h-full pr-20"
+            className="w-full h-full pr-20 default-input"
             placeholder="Complemento"
             {...register('complement')}
           />
@@ -56,7 +62,12 @@ export function AddressForm() {
             </span>
           </div>
         </div>
-        <Input.form type="text" placeholder="Número" {...register('number')} />
+        <input
+          type="text"
+          placeholder="Número"
+          className="default-input"
+          {...register('number')}
+        />
       </div>
     </>
   )

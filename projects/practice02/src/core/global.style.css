@@ -53,10 +53,16 @@ body {
     font-family: 'Baloo 2', cursive !important;
 }
 
-.input-default {
+.default-input {
     border: 1px solid var(--Gray-500);
 }
 
-.input-default:focus {
+.default-input:focus {
     border: 1px solid var(--Yellow-500);
+}
+
+@layer base {
+    .default-input {
+      @apply bg-Gray-300 rounded text-sm leading-tight placeholder:text-Black-100 p-3 text-Black-300;
+    }
 }
