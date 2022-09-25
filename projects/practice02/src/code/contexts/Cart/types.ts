@@ -1,4 +1,5 @@
 import { CoffeeType } from '../../data/Coffees/types'
+import { AddressSchemaType } from '../../schemas/address'
 
 export interface ProductType extends CoffeeType {
   quantity: number
@@ -15,6 +16,7 @@ export enum PaymentMethods {
 export interface SaleType {
   products: ProductType[]
   paymentMethod: PaymentMethods | null
+  address: AddressSchemaType
 }
 
 export interface SaleContextType {

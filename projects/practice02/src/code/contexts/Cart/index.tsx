@@ -11,6 +11,15 @@ export function SaleProvider({ children }: { children: ReactNode }) {
   const [sale, saleDispatch] = useReducer(SaleReducer, {
     products: Coffees.map((coffee: CoffeeType) => ({ ...coffee, quantity: 0 })),
     paymentMethod: null,
+    address: {
+      zipCode: '',
+      city: '',
+      state: '',
+      district: '',
+      road: '',
+      complement: '',
+      number: '',
+    },
   })
 
   function addQuantityForProduct(coffeeId: number) {

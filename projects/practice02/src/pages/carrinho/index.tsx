@@ -26,15 +26,7 @@ export function Cart() {
 
   const AddressPageForm = useForm<AddressSchemaType>({
     resolver: zodResolver(AddressSchema),
-    defaultValues: {
-      zipCode: '',
-      city: '',
-      state: '',
-      district: '',
-      road: '',
-      complement: '',
-      number: '',
-    },
+    defaultValues: sale.address,
   })
 
   const { handleSubmit } = AddressPageForm
