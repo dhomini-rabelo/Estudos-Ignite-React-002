@@ -1,7 +1,7 @@
 import { ShoppingCart } from 'phosphor-react'
 import { BaseSyntheticEvent, useContext } from 'react'
 import { FieldErrors, FormProvider, useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SaleContext } from '../../code/contexts/Cart'
 import { ProductType } from '../../code/contexts/Cart/types'
 import { AddressSchema, AddressSchemaType } from '../../code/schemas/address'
@@ -13,11 +13,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Div } from './styles'
 
 export function Cart() {
+  const navigateTo = useNavigate()
   const {
     sale,
     actions: { setAddress },
   } = useContext(SaleContext)
-  console.log(sale.address)
   const shippingPrice = 6.5
   const productsForBuy = sale.products.filter(
     (product: ProductType) => product.quantity > 0,
@@ -38,6 +38,7 @@ export function Cart() {
   function handleFormSubmit(data: AddressSchemaType) {
     console.log(data)
     setAddress(data)
+    navigateTo('/pedido')
   }
 
   function handleFormErrors(

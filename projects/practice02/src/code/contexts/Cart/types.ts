@@ -11,6 +11,12 @@ export enum PaymentMethods {
   DEBIT = 'DEBIT',
   MONEY = 'MONEY',
 }
+
+export const PaymentMethodsDisplay = {
+  CREDIT: 'Cartão de crédito',
+  DEBIT: 'Cartão de débito',
+  MONEY: 'Dinheiro',
+} as const
 /* eslint-enable */
 
 export interface SaleType {

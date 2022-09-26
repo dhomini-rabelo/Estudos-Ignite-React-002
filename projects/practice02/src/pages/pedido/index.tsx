@@ -1,7 +1,14 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+import { SaleContext } from '../../code/contexts/Cart'
+import { PaymentMethodsDisplay } from '../../code/contexts/Cart/types'
 import { Div } from './styles'
 
 export function RequestFeedback() {
+  const {
+    sale: { address, paymentMethod },
+  } = useContext(SaleContext)
+
   return (
     <div className="mt-28 flex justify-between items-end">
       <Div.requestInfo className="flex flex-col">
@@ -19,8 +26,8 @@ export function RequestFeedback() {
               <MapPin size={16} weight="fill" />
             </div>
             <span className="text-Black-300 leading-tight">
-              Entrega em <strong>Rua João Daniel Martinelli</strong>, 102
-              Farrapos - Porto Alegre, RS
+              Entrega em <strong>{address.road}</strong>, {address.number}{' '}
+              {address.district} - {address.city}, {address.state}
             </span>
           </div>
           <div className="flex items-center gap-x-3">
@@ -38,7 +45,11 @@ export function RequestFeedback() {
             </div>
             <div className="text-Black-300 flex flex-col items-start leading-tight">
               <span>Pagamento na entrega</span>
-              <strong>Cartão de Crédito</strong>
+              <strong>
+                {paymentMethod
+                  ? PaymentMethodsDisplay[paymentMethod]
+                  : 'Não selecionado'}
+              </strong>
             </div>
           </div>
         </div>
