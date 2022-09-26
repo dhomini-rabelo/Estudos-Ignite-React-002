@@ -29,6 +29,10 @@ export function SaleReducer(
       return produce(state, (draft) => {
         draft.paymentMethod = action.payload.paymentMethod
       })
+    case SaleActionsOptions.SET_ADDRESS:
+      return produce(state, (draft) => {
+        draft.address = action.payload.address
+      })
   }
 
   function getProductIndexById(id: number, products: ProductType[]) {

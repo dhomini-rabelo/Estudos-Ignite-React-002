@@ -1,3 +1,4 @@
+import { AddressSchemaType } from '../../../schemas/address'
 import { PaymentMethods } from '../types'
 import { SaleActionsOptions } from './types'
 
@@ -31,6 +32,14 @@ export const SaleConsumer = {
       type: SaleActionsOptions.SET_PAYMENT_METHOD,
       payload: {
         paymentMethod,
+      },
+    }
+  },
+  setAddress(address: AddressSchemaType) {
+    return {
+      type: SaleActionsOptions.SET_PAYMENT_METHOD,
+      payload: {
+        address,
       },
     }
   },
