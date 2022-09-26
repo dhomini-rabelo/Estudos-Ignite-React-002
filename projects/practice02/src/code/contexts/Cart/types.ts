@@ -26,5 +26,6 @@ export interface SaleContextType {
     removeQuantityForProduct: (coffeeId: number) => void
     removeProductFromCart: (coffeeId: number) => void
     setPaymentMethod: (paymentMethod: PaymentMethods) => void
+    setAddress: (address: AddressSchemaType) => void
   }
 }

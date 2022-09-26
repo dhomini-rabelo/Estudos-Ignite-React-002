@@ -37,7 +37,7 @@ export const SaleConsumer = {
   },
   setAddress(address: AddressSchemaType) {
     return {
-      type: SaleActionsOptions.SET_PAYMENT_METHOD,
+      type: SaleActionsOptions.SET_ADDRESS,
       payload: {
         address,
       },

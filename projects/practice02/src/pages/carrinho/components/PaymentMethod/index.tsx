@@ -27,6 +27,7 @@ export function PayMentMethod() {
       </div>
       <div className="grid grid-cols-3 gap-x-3 mt-8">
         <Button.payment
+          type="button"
           active={paymentMethod === PaymentMethods.CREDIT}
           className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300"
           onClick={() => handleSetPaymentMethod(PaymentMethods.CREDIT)}
@@ -37,6 +38,7 @@ export function PayMentMethod() {
           </div>
         </Button.payment>
         <Button.payment
+          type="button"
           active={paymentMethod === PaymentMethods.DEBIT}
           className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300"
           onClick={() => handleSetPaymentMethod(PaymentMethods.DEBIT)}
@@ -47,6 +49,7 @@ export function PayMentMethod() {
           </div>
         </Button.payment>
         <Button.payment
+          type="button"
           active={paymentMethod === PaymentMethods.MONEY}
           className="bg-Gray-500 hover:bg-Gray-800 rounded-md p-4 text-Black-300"
           onClick={() => handleSetPaymentMethod(PaymentMethods.MONEY)}

@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import { Coffees } from '../../data/Coffees'
 import { CoffeeType } from '../../data/Coffees/types'
+import { AddressSchemaType } from '../../schemas/address'
 import { SaleReducer } from './reducer'
 import { SaleConsumer } from './reducer/actions'
 import { PaymentMethods, SaleContextType } from './types'
@@ -38,6 +39,10 @@ export function SaleProvider({ children }: { children: ReactNode }) {
     saleDispatch(SaleConsumer.setPaymentMethod(paymentMethod))
   }
 
+  function setAddress(address: AddressSchemaType) {
+    saleDispatch(SaleConsumer.setAddress(address))
+  }
+
   return (
     <SaleContext.Provider
       value={{
@@ -47,6 +52,7 @@ export function SaleProvider({ children }: { children: ReactNode }) {
           removeQuantityForProduct,
           removeProductFromCart,
           setPaymentMethod,
+          setAddress,
         },
       }}
     >

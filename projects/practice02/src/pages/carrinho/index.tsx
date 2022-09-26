@@ -13,7 +13,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Div } from './styles'
 
 export function Cart() {
-  const { sale } = useContext(SaleContext)
+  const {
+    sale,
+    actions: { setAddress },
+  } = useContext(SaleContext)
+  console.log(sale.address)
   const shippingPrice = 6.5
   const productsForBuy = sale.products.filter(
     (product: ProductType) => product.quantity > 0,
@@ -33,6 +37,7 @@ export function Cart() {
 
   function handleFormSubmit(data: AddressSchemaType) {
     console.log(data)
+    setAddress(data)
   }
 
   function handleFormErrors(
