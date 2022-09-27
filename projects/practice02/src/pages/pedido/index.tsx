@@ -2,12 +2,15 @@ import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { useContext } from 'react'
 import { SaleContext } from '../../code/contexts/Cart'
 import { PaymentMethodsDisplay } from '../../code/contexts/Cart/types'
+import { randomInteger } from '../../code/utils/values'
 import { Div } from './styles'
 
 export function RequestFeedback() {
   const {
     sale: { address, paymentMethod },
   } = useContext(SaleContext)
+
+  const requestTime = randomInteger(10, 50)
 
   return (
     <div className="mt-28 flex justify-between items-end">
@@ -36,7 +39,9 @@ export function RequestFeedback() {
             </div>
             <div className="text-Black-300 flex flex-col items-start leading-tight">
               <span>Previsão de entrega</span>
-              <strong>20 min - 30 min</strong>
+              <strong>
+                {requestTime} min - {requestTime + 10} min
+              </strong>
             </div>
           </div>
           <div className="flex items-center gap-x-3">
