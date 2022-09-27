@@ -1,16 +1,22 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { SaleContext } from '../../code/contexts/Cart'
-import { PaymentMethodsDisplay } from '../../code/contexts/Cart/types'
+import { PaymentMethodsDisplay, SaleType } from '../../code/contexts/Cart/types'
 import { randomInteger } from '../../code/utils/values'
 import { Div } from './styles'
 
 export function RequestFeedback() {
-  const {
-    sale: { address, paymentMethod },
-  } = useContext(SaleContext)
-
   const requestTime = randomInteger(10, 50)
+  const {
+    sale,
+    actions: { clearSale },
+  } = useContext(SaleContext)
+  const lastSale = useRef<SaleType>({ ...sale })
+  const { paymentMethod, address } = lastSale.current
+
+  useEffect(() => {
+    clearSale()
+  }, [])
 
   return (
     <div className="mt-28 flex justify-between items-end">
