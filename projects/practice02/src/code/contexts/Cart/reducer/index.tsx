@@ -1,4 +1,6 @@
 import produce from 'immer'
+import { Coffees } from '../../../data/Coffees'
+import { CoffeeType } from '../../../data/Coffees/types'
 import { ProductType, SaleType } from '../types'
 import { SaleActionParamType, SaleActionsOptions } from './types'
 
@@ -32,6 +34,14 @@ export function SaleReducer(
     case SaleActionsOptions.SET_ADDRESS:
       return produce(state, (draft) => {
         draft.address = action.payload.address
+      })
+    case SaleActionsOptions.CLEAR_SALE:
+      return produce(state, (draft) => {
+        draft.products = Coffees.map((coffee: CoffeeType) => ({
+          ...coffee,
+          quantity: 0,
+        }))
+        draft.paymentMethod = null
       })
   }
 

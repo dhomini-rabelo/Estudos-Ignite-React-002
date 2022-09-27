@@ -33,5 +33,6 @@ export interface SaleContextType {
     removeProductFromCart: (coffeeId: number) => void
     setPaymentMethod: (paymentMethod: PaymentMethods) => void
     setAddress: (address: AddressSchemaType) => void
+    clearSale: () => void
   }
 }

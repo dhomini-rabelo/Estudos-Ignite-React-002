@@ -43,4 +43,9 @@ export const SaleConsumer = {
       },
     }
   },
+  clearSale() {
+    return {
+      type: SaleActionsOptions.CLEAR_SALE,
+    }
+  },
 }

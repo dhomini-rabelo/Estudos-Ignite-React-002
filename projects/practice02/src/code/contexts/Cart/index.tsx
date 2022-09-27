@@ -43,6 +43,10 @@ export function SaleProvider({ children }: { children: ReactNode }) {
     saleDispatch(SaleConsumer.setAddress(address))
   }
 
+  function clearSale() {
+    saleDispatch(SaleConsumer.clearSale())
+  }
+
   return (
     <SaleContext.Provider
       value={{
@@ -53,6 +57,7 @@ export function SaleProvider({ children }: { children: ReactNode }) {
           removeProductFromCart,
           setPaymentMethod,
           setAddress,
+          clearSale,
         },
       }}
     >
