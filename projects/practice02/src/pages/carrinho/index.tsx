@@ -1,5 +1,5 @@
 import { ShoppingCart } from 'phosphor-react'
-import { BaseSyntheticEvent, useContext } from 'react'
+import { BaseSyntheticEvent, useContext, useState } from 'react'
 import { FieldErrors, FormProvider, useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { SaleContext } from '../../code/contexts/Cart'
@@ -11,9 +11,11 @@ import { CoffeeBuy } from './components/CoffeeBuy'
 import { PayMentMethod } from './components/PaymentMethod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Div } from './styles'
+import { ModalForError } from './components/ModalForError'
 
 export function Cart() {
   const navigateTo = useNavigate()
+  const [showError, setShowError] = useState<boolean>(true)
   const {
     sale,
     actions: { setAddress },
@@ -52,6 +54,7 @@ export function Cart() {
   /* eslint-disable */
   return (
     <>
+      {showError && <ModalForError />}
       <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit, handleFormErrors)}>
         <div className="grid grid-cols-5 gap-x-8">
           <div className="col-span-3 flex flex-col">
