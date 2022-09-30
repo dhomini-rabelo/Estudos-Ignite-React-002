@@ -15,7 +15,7 @@ export const AddressSchema = zod.object({
     .string()
     .length(9, 'Formato inválido para de CEP, use 00000-000.'),
   city: zod.string(),
-  state: zod.string().length(2, 'UF precisa ter 2 caracteres.'),
+  state: zod.string().length(2, 'Insira um UF válido'),
   district: zod.string(),
   road: zod.string(),
   complement: zod.string().optional(),
