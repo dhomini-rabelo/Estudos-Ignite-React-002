@@ -38,9 +38,12 @@ export function Cart() {
   const { handleSubmit } = AddressPageForm
 
   function handleFormSubmit(data: AddressSchemaType) {
-    console.log(data)
-    setAddress(data)
-    navigateTo('/pedido')
+    if (sale.paymentMethod !== null) {
+      setAddress(data)
+      navigateTo('/pedido')
+    } else {
+      setErrorMessage('Escolha um método de pagamento')
+    }
   }
 
   function handleFormErrors(
