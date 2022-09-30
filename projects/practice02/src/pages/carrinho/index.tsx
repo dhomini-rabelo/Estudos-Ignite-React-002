@@ -15,7 +15,7 @@ import { ModalForError } from './components/ModalForError'
 
 export function Cart() {
   const navigateTo = useNavigate()
-  const [showError, setShowError] = useState<boolean>(true)
+  const [errorMessage, setErrorMessage] = useState<string>('')
   const {
     sale,
     actions: { setAddress },
@@ -47,14 +47,18 @@ export function Cart() {
     errors: FieldErrors<AddressSchemaType>,
     event?: BaseSyntheticEvent,
   ) {
-    const errorMessage = Object.values(errors)[0].message
-    console.log(errorMessage)
+    const validationError = Object.values(errors)[0].message as string
+    setErrorMessage(validationError)
+  }
+
+  function onCloseModalForError() {
+    setErrorMessage('')
   }
 
   /* eslint-disable */
   return (
     <>
-      {showError && <ModalForError />}
+      {errorMessage && <ModalForError errorMessage={errorMessage} onClose={onCloseModalForError} />}
       <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit, handleFormErrors)}>
         <div className="grid grid-cols-5 gap-x-8">
           <div className="col-span-3 flex flex-col">

@@ -2,11 +2,18 @@ import { Dialog, Transition } from '@headlessui/react'
 import { X } from 'phosphor-react'
 import { Fragment, useState } from 'react'
 
-export function ModalForError() {
+export function ModalForError({
+  errorMessage,
+  onClose,
+}: {
+  errorMessage: string
+  onClose: () => void
+}) {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   function closeModal() {
     setIsOpen(false)
+    onClose()
   }
 
   return (
@@ -49,18 +56,12 @@ export function ModalForError() {
                     </div>
                   </Dialog.Title>
                   <div className="mt-6 w-full">
-                    <input
-                      type="text"
-                      name="task"
-                      id="task"
-                      placeholder="Altere o texto de uma tarefa"
-                      required
-                      className="w-full p-4 bg-pGray-500 border-solid border-pGray-700 rounded-lg mr-2 placeholder-pGray-300 text-pGray-100"
-                    />
+                    <span className="text-red-500 text-lg">{errorMessage}</span>
                   </div>
 
                   <div className="mt-6">
                     <button
+                      onClick={closeModal}
                       className="w-full py-3 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-sm bold leading-relaxed"
                       type="button"
                     >
