@@ -1,6 +1,8 @@
 import { MapPinLine } from 'phosphor-react'
 import { useFormContext } from 'react-hook-form'
 import Cleave from 'cleave.js/react'
+import { UfDatalist } from './datalist'
+import { Div } from './styles'
 
 export function AddressForm() {
   const { register } = useFormContext()
@@ -8,6 +10,7 @@ export function AddressForm() {
 
   return (
     <>
+      <UfDatalist />
       <div className="flex gap-x-2">
         <MapPinLine size={22} className="text-Yellow-800" />
         <div className="flex flex-col">
@@ -17,7 +20,7 @@ export function AddressForm() {
           </span>
         </div>
       </div>
-      <div className="grid grid-cols-3 mt-8 gap-x-3 gap-y-4">
+      <Div.form className="grid grid-cols-3 mt-8 gap-x-3 gap-y-4">
         <Cleave
           options={{
             blocks: [5, 3],
@@ -42,7 +45,8 @@ export function AddressForm() {
           <input
             type="text"
             placeholder="UF"
-            className="default-input col-span-2 sm:col-span-1"
+            className="default-input col-span-2 sm:col-span-1 input-state"
+            list="ufs-datalist"
             {...register('state')}
             required
           />
@@ -81,7 +85,7 @@ export function AddressForm() {
           {...register('number')}
           required
         />
-      </div>
+      </Div.form>
     </>
   )
 }
