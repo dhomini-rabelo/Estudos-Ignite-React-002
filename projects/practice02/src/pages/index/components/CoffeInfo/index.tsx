@@ -13,14 +13,16 @@ export function CoffeeInfo({ coffee }: { coffee: ProductType }) {
         alt="coffee-type"
         className="coffee-image-product absolute"
       />
-      {coffee.categories.map((category) => (
-        <span
-          className="type py-1 px-2 bg-Yellow-100 text-xs leading-tight font-bold text-Yellow-800 mb-4 mt-3"
-          key={category}
-        >
-          {category}
-        </span>
-      ))}
+      <div className="mb-4 mt-3 flex gap-x-1">
+        {coffee.categories.map((category) => (
+          <span
+            className="type py-1 px-2 bg-Yellow-100 text-xs leading-tight font-bold text-Yellow-800"
+            key={category}
+          >
+            {category}
+          </span>
+        ))}
+      </div>
       <h3 className="text-Black-500 font-bold text-xl leading-tight">
         {coffee.name}
       </h3>
