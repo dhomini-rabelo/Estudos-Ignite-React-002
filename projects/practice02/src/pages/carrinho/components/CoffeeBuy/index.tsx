@@ -14,8 +14,12 @@ export function CoffeeBuy({ coffee }: { coffee: ProductType }) {
     removeProductFromCart(coffee.id)
   }
   return (
-    <div className="coffee-buy flex items-start">
-      <img src={coffee.fileUrl} alt="coffee-image" className="w-16 h-16" />
+    <div className="coffee-buy flex items-start flex-wrap-reverse">
+      <img
+        src={coffee.fileUrl}
+        alt="coffee-image"
+        className="w-16 h-16 hidden min:block"
+      />
       <div className="coffee-data flex flex-col justify-center grow pl-5">
         <span className="leading-tight">{coffee.name}</span>
         <div className="flex mt-2 gap-x-2">

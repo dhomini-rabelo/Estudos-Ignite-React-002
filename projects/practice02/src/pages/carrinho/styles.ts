@@ -7,5 +7,9 @@ export const Div = {
     }
     border-radius: 6px 44px;
   `,
-  coffeeBuy: styled.div``,
+  container: styled.div`
+    .max-box-length {
+      max-width: 40rem;
+    }
+  `,
 }

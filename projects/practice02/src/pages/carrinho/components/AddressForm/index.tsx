@@ -34,7 +34,7 @@ export function AddressForm() {
         <div className="grid grid-cols-5 col-span-2 gap-x-3">
           <input
             type="text"
-            className="col-span-4 default-input"
+            className="col-span-3 sm:col-span-4 default-input"
             placeholder="Cidade"
             {...register('city')}
             required
@@ -42,7 +42,7 @@ export function AddressForm() {
           <input
             type="text"
             placeholder="UF"
-            className="default-input"
+            className="default-input col-span-2 sm:col-span-1"
             {...register('state')}
             required
           />

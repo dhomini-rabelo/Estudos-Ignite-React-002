@@ -63,43 +63,44 @@ export function Cart() {
     <>
       {errorMessage && <ModalForError errorMessage={errorMessage} onClose={onCloseModalForError} />}
       <form className="mt-16" onSubmit={handleSubmit(handleFormSubmit, handleFormErrors)}>
-        <div className="grid grid-cols-5 gap-x-8">
-          <div className="col-span-3 flex flex-col">
-            <div className="w-full">
+        <Div.container className="grid grid-cols-5 gap-x-8 gap-y-8">
+          <div className="col-span-5 pc:col-span-3 flex flex-col">
+            <div className="w-full mx-auto max-box-length">
               <h2 className="baloo font-bold text-lg leading-tight mb-4 gap-x-8">
                 Complete seu pedido
               </h2>
-              <div className="bg-Gray-200 p-10 rounded-md">
+              <div className="bg-Gray-200 p-8 min:p-10 rounded-md">
                 <FormProvider {...AddressPageForm}>
                   <AddressForm />
                 </FormProvider>
               </div>
             </div>
-            <div className="w-full mt-3">
+            <div className="w-full mt-3 mx-auto max-box-length">
               <PayMentMethod />
             </div>
           </div>
-          <div className="w-full col-span-2">
-            <h2 className="baloo font-bold text-lg leading-tight mb-4 gap-x-8">
-              Cafés selecionados
-            </h2>
-            <Div.coffeeBuyContainer className="bg-Gray-200 p-10 rounded-md">
-              {productsForBuy.map((product: ProductType) => (
-                <div key={product.id}>
-                  <CoffeeBuy coffee={product} />
-                  <div className="border-separation my-6"></div>
-                </div>
-              ))}
-              {productsForBuy.length === 0 ? (
-                <div className="flex flex-col items-center justify-center gap-y-2 h-64">
-                  <ShoppingCart size={64} weight="fill" className="text-Yellow-800" />
-                  <span className="text-Black-100">O carrinho está vazio</span>
-                  <Link to="/" className="py-2 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-xs bold leading-relaxed">
-                    COMPRAR
-                  </Link>
-                </div>
-              ) : (
-                <>
+          <div className="col-span-5 pc:col-span-2">
+            <div className="w-full mx-auto mb-12 pc:mb-0 max-box-length">
+              <h2 className="baloo font-bold text-lg leading-tight mb-4 gap-x-8">
+                Cafés selecionados
+              </h2>
+              <Div.coffeeBuyContainer className="bg-Gray-200 p-8 min:p-10 rounded-md">
+                {productsForBuy.map((product: ProductType) => (
+                  <div key={product.id}>
+                    <CoffeeBuy coffee={product} />
+                    <div className="border-separation my-6"></div>
+                  </div>
+                ))}
+                {productsForBuy.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center gap-y-2 h-64">
+                    <ShoppingCart size={64} weight="fill" className="text-Yellow-800" />
+                    <span className="text-Black-100">O carrinho está vazio</span>
+                    <Link to="/" className="py-2 px-2 bg-Yellow-500 hover:bg-Yellow-800 rounded-md text-white text-xs bold leading-relaxed">
+                      COMPRAR
+                    </Link>
+                  </div>
+                ) : (
+                  <>
                     <div className="mb-6 flex flex-col gap-y-3">
                       <div className="flex justify-between items-center text-Black-300 leading-tight">
                         <span className="text-sm">Itens</span>
@@ -125,11 +126,12 @@ export function Cart() {
                     >
                       CONFIRMAR PEDIDO
                     </button>
-                </>
-              )}
-            </Div.coffeeBuyContainer>
+                  </>
+                )}
+              </Div.coffeeBuyContainer>
+            </div>
           </div>
-        </div>
+        </Div.container>
       </form>
     </>
   )
