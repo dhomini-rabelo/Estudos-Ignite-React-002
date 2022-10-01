@@ -19,8 +19,8 @@ export function RequestFeedback() {
   }, [])
 
   return (
-    <div className="mt-28 flex justify-between items-end">
-      <Div.requestInfo className="flex flex-col">
+    <div className="mb-10 pc:mb-0 mt-28 flex justify-between flex-wrap-reverse gap-y-12">
+      <Div.requestInfo className="flex flex-col mx-auto">
         <div className="mb-10">
           <h2 className="title baloo text-Yellow-800 font-extrabold text-3xl leading-tight">
             Uhu! Pedido confirmado
@@ -65,7 +65,7 @@ export function RequestFeedback() {
           </div>
         </div>
       </Div.requestInfo>
-      <img src="/sale.svg" alt="sale-image" />
+      <img src="/sale.svg" alt="sale-image" className="block mx-auto" />
     </div>
   )
 }

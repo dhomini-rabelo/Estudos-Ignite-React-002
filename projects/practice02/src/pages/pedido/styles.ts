@@ -8,7 +8,8 @@ export const Div = {
 
     .info-box {
       border-radius: 6px 36px;
-      width: 32.6875rem;
+      max-width: 100%;
+      width: max(32.6875rem, 100%);
       border: 1px solid;
       border-image-source: linear-gradient(
           102.89deg,
