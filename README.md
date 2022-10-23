@@ -74,5 +74,5 @@
 
 <br>
 <br>
-<h2 id="external-project">Projeto do curso feito individualmente</h2>
-<p>caminho: "/projects/practice02"</p>
+<h2 id="external-project">Projeto externo feito individualmente, para praticar ainda mais os conceitos</h2>
+<a href="https://github.com/dhomini-rabelo/chat">https://github.com/dhomini-rabelo/chat</a>
