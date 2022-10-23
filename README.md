@@ -75,4 +75,4 @@
 <br>
 <br>
 <h2 id="external-project">Projeto externo feito individualmente, para praticar ainda mais os conceitos</h2>
-<a href="https://github.com/dhomini-rabelo/chat">https://github.com/dhomini-rabelo/chat</a>
+<p><strong>Link:</strong> <a href="https://github.com/dhomini-rabelo/chat">https://github.com/dhomini-rabelo/chat</a></p>
