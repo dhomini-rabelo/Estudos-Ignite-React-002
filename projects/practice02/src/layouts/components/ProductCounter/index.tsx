@@ -26,6 +26,7 @@ export function ProductCounter({
       className={`p-2 rounded-md bg-Gray-500 flex items-center justify-center ${extraClasses}`}
     >
       <button
+        type="button"
         className="text-Purple-500 hover:text-Purple-800"
         onClick={handleRemoveQuantityForProduct}
       >
@@ -35,6 +36,7 @@ export function ProductCounter({
         <strong>{product.quantity}</strong>
       </span>
       <button
+        type="button"
         className="text-Purple-500 hover:text-Purple-800"
         onClick={handleAddQuantityForProduct}
       >

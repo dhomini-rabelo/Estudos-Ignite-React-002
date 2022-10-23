@@ -5,8 +5,8 @@
 <ul>
 
 <li><a href="#course">Projeto feito durante as aulas</a></li> 
-<li><a href="#">Projeto do curso feito individualmente</a></li> 
-<li><a href="#">Projeto externo feito individualmente</a></li> 
+<li><a href="#course-individual">Projeto do curso feito individualmente</a></li> 
+<li><a href="#external-project">Projeto externo feito individualmente</a></li> 
 
 </ul>
 
@@ -44,3 +44,35 @@
     <li>Jeitos para resolver de maneira bem diferente</li>
     <li>Etc...</li>
 </ul>
+
+<br>
+<br>
+<h2 id="course-individual">Projeto do curso feito individualmente</h2>
+<p>caminho: "/projects/practice02"</p>
+
+<br>
+<img src="./readme/coffee.gif" alt="course-project-gif" />
+
+<p>
+    Este é um projeto de uma cafeteria online. Este projeto foi enviado pela Rocketseat, para praticarmos os conceitos
+    aprendidos no primeiro projeto
+</p>
+
+<h3>🚀 Tecnologias</h3>
+<ul>
+    <li>Vite ts</li>
+    <li>Tailwind</li>
+    <li>Styled-components</li>
+    <li>Phosphor-react</li>
+    <li>date-fns</li>
+    <li>react-router-dom</li>
+    <li>react-hook-form</li>
+    <li>zod</li>
+    <li>cleave.js</li>
+    <li>headlessui</li>
+</ul>
+
+<br>
+<br>
+<h2 id="external-project">Projeto do curso feito individualmente</h2>
+<p>caminho: "/projects/practice02"</p>
