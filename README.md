@@ -13,7 +13,7 @@
 <br>
 
 <h2 id="course">Projeto feito durante as aulas</h2>
-<p>caminho: "/projects/stage02"</p>
+<p>caminho: "/stage02"</p>
 
 <br>
 <img src="./readme/pomo.gif" alt="course-project-gif" />
